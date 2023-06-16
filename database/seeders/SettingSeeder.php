@@ -6,6 +6,8 @@ use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class SettingSeeder extends Seeder
 {
@@ -16,6 +18,10 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+        DB::table('settings')->truncate();
+        Schema::enableForeignKeyConstraints();
+
         $settings = [
             [
                 'key' => 'fixed_navbar',

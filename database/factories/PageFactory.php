@@ -14,7 +14,7 @@ class PageFactory extends Factory
     public function definition()
     {
         return [
-
+            "content" => $this->faker->randomHtml(),
         ];
     }
 }
