@@ -5,12 +5,15 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -76,14 +79,9 @@ Route::group(
             Route::get('/home', [HomeController::class, 'websiteHome'])->name('home');
             Route::redirect('/', "/home");
 
-            Route::get('/posts/{post}', [PostController::class, 'websiteShow'])->name('posts.show');
-
             Route::get('/categories/{category}', [CategoryController::class, 'websiteShow'])->name('categories.show');
 
             Route::get('/pages/{page}', [PageController::class, 'websiteShow'])->name('pages.show');
-
-            Route::get('/prices/{price}', [PriceController::class, 'websiteShow'])->name('prices.show');
-            Route::get('/states/{state}', [StateController::class, 'websiteShow'])->name('states.show');
 
             Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
             Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -107,17 +105,14 @@ Route::group(
             Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
             Route::delete('/contacts/all', [ContactController::class, 'destroyAll'])->name('contacts.destroyAll');
 
-            Route::delete('/posts/all', [PostController::class, 'destroyAll'])->name('posts.destroyAll');
-
-
             // resources
             Route::resource('users', UserController::class);
             Route::put('users/{user}/update/roles', [UserController::class, 'updateRoles'])->name('users.update-roles');
 
             Route::resource('categories', CategoryController::class)->only(['index', 'show']);
-            Route::resource('prices', PriceController::class)->only(['index', 'show']);
-            Route::resource('states', StateController::class)->only(['index', 'show']);
-            Route::resource('posts', PostController::class)->only(['index', 'show']);
+            Route::resource('sub-categories', SubCategoryController::class)->only(['index', 'show']);
+            Route::resource('orders', OrderController::class)->only(['index', 'show']);
+            Route::resource('products', ProductController::class)->only(['index', 'show']);
             Route::resource('pages', PageController::class)->only(['index', 'show', 'create', 'store']);
         });
     }

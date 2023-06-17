@@ -9,21 +9,32 @@
             </div>
             <div class="modal-body">
 
+                @include('includes.status')
+
                 <div class="form-group">
-                    <input wire:model="name" name="name"
-                        class="form-control @error('name') is-invalid @enderror" placeholder="@lang('all.name')">
+                    <input wire:model.defer="name" name="name"
+                           class="form-control @error('name') is-invalid @enderror" placeholder="@lang('all.name')">
                     @error('name')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
-                {{-- @include('includes.image-copper' , ['hight'=>100 , 'width' => 150]) --}}
+                @include('includes.image-input' , ["height" => 300 , "width" => 300])
 
                 <div class="form-group">
-                    <input wire:model="color" name="color"
-                        class="form-control @error('color') is-invalid @enderror" placeholder="@lang('all.color')">
+                    <textarea wire:model.defer="desc" name="desc"
+                              class="form-control @error('desc') is-invalid @enderror" placeholder="@lang('all.desc')"
+                              rows="4"></textarea>
+                    @error('desc')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <input wire:model.defer="color" name="color"
+                           class="form-control @error('color') is-invalid @enderror" placeholder="@lang('all.color')">
                     @error('color')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -39,18 +50,4 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-{{-- @push('styles')
-    <link rel="stylesheet"
-        href="{{ asset('assets/adminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css') }}">
-@endpush
 
-@push('scripts')
-    <script src="{{ asset('assets/adminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.js') }}">
-    </script>
-    <script>
-        //Date picker
-        $('#reservationdate').datetimepicker({
-            format: 'L'
-        });
-    </script>
-@endpush --}}

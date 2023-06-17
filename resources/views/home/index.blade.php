@@ -34,12 +34,12 @@
         <!-- /.col -->
         <div class="col-12 col-sm-6 col-md-6">
             <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fa fa-dollar-sign"
-                        ></i></span>
+                <span class="info-box-icon bg-success elevation-1"><i class="fa fa-list"
+                    ></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">@lang("all.prices_count")</span>
-                    <span class="info-box-number">{{ $prices_count }}</span>
+                    <span class="info-box-text">@lang("all.sub_categories_count")</span>
+                    <span class="info-box-number">{{ $sub_categories_count }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -48,12 +48,12 @@
         <!-- /.col -->
         <div class="col-12 col-sm-6 col-md-6">
             <div class="info-box mb-3">
-                <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-map-marker-alt"
-                        ></i></span>
+                <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-box-open"
+                    ></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">@lang("all.states_count")</span>
-                    <span class="info-box-number">{{ $states_count }}</span>
+                    <span class="info-box-text">@lang("all.products_count")</span>
+                    <span class="info-box-number">{{ $products_count }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -66,12 +66,12 @@
 
         <div class="col-12 col-sm-6 col-md-6">
             <div class="info-box mb-3">
-                <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-file-archive"
-                        ></i></span>
+                <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-paper-plane"
+                    ></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">@lang("all.posts_count")</span>
-                    <span class="info-box-number">{{ $posts_count }}</span>
+                    <span class="info-box-text">@lang("all.orders_count")</span>
+                    <span class="info-box-number">{{ $orders_count }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>

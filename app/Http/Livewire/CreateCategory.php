@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Http\Helpers\Funcs;
 use App\Models\Category;
 use App\Models\Patient;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -17,13 +16,16 @@ class CreateCategory extends Component
 
     public $name;
     public $image;
+    public $desc;
     public $color;
 
     protected $listeners = ['category_stored' => '$refresh'];
 
     protected $rules = [
-        "name" => "required|unique:categories,name|min:2|max:30|string",
-        "color" => "required|max:10|min:2",
+        "name" => "required|unique:categories,name|min:2|max:150|string",
+        "color" => "nullable|max:10|min:2",
+        "image" => "nullable|max:300|image",
+        "desc" => "nullable|max:600|min:2",
     ];
 
     public function updated($propertyName){
@@ -47,6 +49,7 @@ class CreateCategory extends Component
         $this->name = null;
         $this->image = null;
         $this->color = null;
+        $this->desc = null;
     }
 
 

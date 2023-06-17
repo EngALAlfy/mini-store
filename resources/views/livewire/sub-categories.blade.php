@@ -1,80 +1,84 @@
 <div>
     @include('includes.status')
 
-
     <div class="card">
 
         <div class="card-header">
             <div class="card-title">
                 <div class=" input-group input-group-sm m-auto" style="width: 150px">
-                    <input type="search" wire:model="search" class="form-control" placeholder="@lang('all.search')">
+                    <input class="form-control" type="search" wire:model="search" placeholder="@lang('all.search')">
                 </div>
             </div>
 
-
             <div class="d-flex card-tools">
-                <a href="{{ route('admin.pages.create') }}"
-                    class="btn btn-success"><i class="fa fa-plus mr-2"></i> @lang('all.add')
-                </a>
+                <button class="btn btn-success" data-toggle="modal" data-target="#add-sub-category-modal" type="button">
+                    <i
+                        class="fa fa-plus mr-2"></i> @lang('all.add')
+                </button>
 
             </div>
         </div>
         <div class="card-body p-0">
-            @if ($pages == null || count($pages) <= 0)
+            @if ($subCategories == null || count($subCategories) <= 0)
                 <div class="alert alert-info m-l-10 m-r-10">
                     <h5><i class="icon fas fa-info"></i> @lang('all.no_data')</h5>
                 </div>
             @else
                 <div class="table-responsive">
-
-                    <table class="table table-striped projects">
+                    <table class="table table-striped projects ">
                         <thead>
                         <tr>
-
                             <th style="width: 10%">
                                 #
                             </th>
                             <th style="width: 50%">
                                 @lang('all.name')
                             </th>
-                            <th style="width: 40%">
+
+                            <th style="width: 20%">
+                                @lang('all.category')
+                            </th>
+                            <th style="width: 20%">
                                 @lang('all.actions')
                             </th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($pages as $page)
+                        @foreach ($subCategories as $subCategory)
                             <tr>
                                 <td>
-                                    #{{ $page->id }}
+                                    #{{ $subCategory->id }}
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.sub-categories.show', $subCategory) }}">
+                                        {{ $subCategory->name }}
+                                    </a>
                                 </td>
 
                                 <td>
-                                    <a href="{{ route('admin.pages.show', $page) }}">
-                                        {{ $page->name }}
+                                    <a href="{{ route('admin.categories.show', $subCategory->category) }}">
+                                        {{ $subCategory->category->name }}
                                     </a>
                                 </td>
 
                                 <td class="project-actions text-right">
-
                                     @if ($delete_dialog)
-                                        <button wire:click="deleteId({{ $page->name }})"
-                                                data-target="#delete-modal" data-toggle="modal"
-                                            class="btn btn-danger btn-sm">
+                                        <button class="btn btn-danger btn-sm" data-target="#delete-modal"
+                                                data-toggle="modal" wire:click="deleteId({{ $subCategory->id }})">
                                             <i class="fas fa-trash">
                                             </i>
                                             @lang('all.delete')
                                         </button>
                                     @else
-                                        @if ($deleteId == $page->name)
-                                            <button wire:click="delete" class="btn btn-warning btn-sm">
+                                        @if ($deleteId == $subCategory->id)
+                                            <button class="btn btn-warning btn-sm" wire:click="delete">
                                                 <i class="fas fa-check">
                                                 </i>
                                                 @lang('all.are_you_sure')
                                             </button>
                                         @else
-                                            <button wire:click="deleteId({{ $page->name }})"
-                                                class="btn btn-danger btn-sm">
+                                            <button class="btn btn-danger btn-sm"
+                                                    wire:click="deleteId({{ $subCategory->id }})">
                                                 <i class="fas fa-trash">
                                                 </i>
                                                 @lang('all.delete')
@@ -87,17 +91,16 @@
                         </tbody>
                     </table>
                 </div>
-
             @endif
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
-            <span class="float-left">{{ $pages->links() }}</span>
+            <span class="float-left">{{ $subCategories->links() }}</span>
 
             <div class="form-group float-right">
 
                 <label>
-                    <select wire:model="perPage" class="form-control">
+                    <select class="form-control" wire:model="perPage">
                         <option>10</option>
                         <option>50</option>
                         <option>100</option>
@@ -108,8 +111,17 @@
             </div>
         </div>
 
-
     </div>
+
+    @livewire('create-sub-category')
+
+    @push('scripts')
+        <script>
+            Livewire.on('sub_category_stored', () => {
+                $('#add-sub-category-modal').modal('hide');
+            });
+        </script>
+    @endpush
 
     {{-- @include('tests.create') --}}
     @include('includes.delete')

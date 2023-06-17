@@ -1,3 +1,4 @@
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
@@ -35,62 +36,6 @@
                     </a>
                 </li>
 
-                {{-- <li @class(["nav-item" , "menu-open" => Str::contains(Route::currentRouteName() , "appointment")])>
-                    <a href="#" @class(["nav-link" , "active" => Str::contains(Route::currentRouteName() , "appointment")])>
-                        <i class="nav-icon ahi ahi-i_exam_multiple_choice"></i>
-                        <p>
-                            @lang('all.appointments')
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('appointments.index')}}" @class(["nav-link" , "active" => Route::currentRouteName()== 'appointments.index'])>
-                            <i class="nav-icon ahi ahi-i_note_action"></i>
-                            <p class="text">@lang('all.all_appointments')
-                            <span class="right badge badge-warning">{{$all_appointments_count}}</span></p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('appointments.today')}}" @class(["nav-link" , "active" => Route::currentRouteName()== 'appointments.today'])>
-                            <i class="nav-icon ahi ahi-i_documents_accepted"></i>
-                            <p class="text">@lang('all.today_appointments')
-                            <span class="right badge badge-success">{{$today_appointments_count}}</span>
-                            </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('appointments.next')}}" @class(["nav-link" , "active" => Route::currentRouteName()== 'appointments.next'])>
-                            <i class="nav-icon ahi ahi-health_data_sync"></i>
-                            <p class="text">@lang('all.next_appointments')
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('appointments.yesterday')}}" @class(["nav-link" , "active" => Route::currentRouteName()== 'appointments.yesterday'])>
-                            <i class="nav-icon ahi ahi-i_documents_denied"></i>
-                            <p class="text">@lang('all.yesterday_appointments')
-                                <span class="right badge badge-danger">{{$yesterday_appointments_count}}</span></p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('appointments.exited')}}" @class(["nav-link" , "active" => Route::currentRouteName()== 'appointments.exited'])>
-                            <i class="nav-icon ahi ahi-default"></i>
-                            <p class="text">@lang('all.exited_appointments')</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{route('appointment-types.index')}}" @class(["nav-link" , "active" => Route::currentRouteName()== 'appointment-types.index'])>
-                            <i class="nav-icon fa fa-sitemap"></i>
-                            <p class="text">@lang('all.appointment_types')</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-
-
-
                 <li class="nav-item">
                     <a href="{{ route('admin.categories.index') }}" @class([
                         'nav-link',
@@ -104,37 +49,37 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.prices.index') }}" @class([
+                    <a href="{{ route('admin.sub-categories.index') }}" @class([
                         'nav-link',
-                        'active' => Route::currentRouteName() == 'admin.prices.index',
+                        'active' => Route::currentRouteName() == 'admin.sub-categories.index',
                     ])>
-                        <i class="nav-icon fa fa-dollar-sign"></i>
-                        <p class="text">@lang('all.prices')
-                            <span class="right badge badge-success">{{ $prices_count }}</span>
+                        <i class="nav-icon fa fa-list"></i>
+                        <p class="text">@lang('all.sub_categories')
+                            <span class="right badge badge-success">{{ $sub_categories_count }}</span>
                         </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.states.index') }}" @class([
+                    <a href="{{ route('admin.products.index') }}" @class([
                         'nav-link',
-                        'active' => Route::currentRouteName() == 'admin.states.index',
+                        'active' => Route::currentRouteName() == 'admin.products.index',
                     ])>
-                        <i class="nav-icon fa fa-map-marker-alt"></i>
-                        <p class="text">@lang('all.states')
-                            <span class="right badge badge-warning">{{ $states_count }}</span>
+                        <i class="nav-icon fa fa-box-open"></i>
+                        <p class="text">@lang('all.products')
+                            <span class="right badge badge-warning">{{ $products_count }}</span>
                         </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.posts.index') }}" @class([
+                    <a href="{{ route('admin.orders.index') }}" @class([
                         'nav-link',
-                        'active' => Route::currentRouteName() == 'admin.posts.index',
+                        'active' => Route::currentRouteName() == 'admin.orders.index',
                     ])>
                         <i class="nav-icon fa fa-paper-plane"></i>
-                        <p class="text">@lang('all.posts')
-                            <span class="right badge badge-info">{{ $posts_count }}</span>
+                        <p class="text">@lang('all.orders')
+                            <span class="right badge badge-info">{{ $orders_count }}</span>
                         </p>
                     </a>
                 </li>
@@ -163,18 +108,6 @@
                         </p>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('admin.notifications.index') }}" @class([
-                        'nav-link',
-                        'active' => Route::currentRouteName() == 'admin.notifications.index',
-                    ])>
-                        <i class="nav-icon fa fa-bell"></i>
-                        <p class="text">@lang('all.notifications')
-                        </p>
-                    </a>
-                </li>
-
 
                 <li class="nav-header">@lang('all.settings')</li>
 

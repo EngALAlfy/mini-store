@@ -1,3 +1,3 @@
 <div>
-@include('categories.create')
+    @include('categories.create')
 </div>

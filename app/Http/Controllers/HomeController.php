@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Post;
 use App\Models\Price;
+use App\Models\Product;
 use App\Models\State;
 use App\Models\SubCategory;
 use Request;
@@ -15,11 +17,11 @@ class HomeController extends Controller
     function index()
     {
         $categories_count = Category::count();
-        $prices_count = Price::count();
-        $states_count = State::count();
-        $posts_count = Post::count();
+        $sub_categories_count = SubCategory::count();
+        $orders_count = Order::count();
+        $products_count = Product::count();
 
-        return view('home.index', compact('categories_count' , 'posts_count' , 'prices_count' , 'states_count'));
+        return view('home.index', compact('categories_count', 'products_count', 'orders_count', 'sub_categories_count'));
     }
 
     function websiteHome()

@@ -3,29 +3,25 @@
 namespace App\Http\Livewire;
 
 use App\Http\Helpers\Funcs;
-use App\Models\Category;
+use App\Models\SubCategory;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Categories extends Component
+class SubCategories extends Component
 {
     use Funcs;
     use WithPagination;
-
-    protected $paginationTheme = 'bootstrap';
 
     public $perPage = 50;
     public $orderBy = 'created_at';
     public $order = 'asc';
     public $search = '';
-
     public $deleteId;
-
-    // settings
     public $delete_dialog;
 
-
-    protected $listeners = ['category_stored'];
+    // settings
+    protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['sub_category_stored'];
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -35,8 +31,7 @@ class Categories extends Component
     ];
 
 
-
-    public function category_stored()
+    public function sub_category_stored()
     {
         $this->success();
     }
@@ -48,7 +43,7 @@ class Categories extends Component
 
     public function render()
     {
-        return view('livewire.categories', ['categories' => Category::where('id', 'LIKE', '%' . $this->search . '%')->orWhere('name', 'LIKE', '%' . $this->search . '%')->orderBy($this->orderBy, $this->order)->paginate($this->perPage)]);
+        return view('livewire.sub-categories', ['subCategories' => SubCategory::where('id', 'LIKE', '%' . $this->search . '%')->orWhere('name', 'LIKE', '%' . $this->search . '%')->orderBy($this->orderBy, $this->order)->paginate($this->perPage)]);
     }
 
     function deleteId($id)
@@ -58,10 +53,10 @@ class Categories extends Component
 
     function delete()
     {
-        $category = Category::find($this->deleteId);
+        $subCategory = SubCategory::find($this->deleteId);
 
         //  delete
-        $category->delete();
+        $subCategory->delete();
 
         $this->success();
         $this->deleteId = null;

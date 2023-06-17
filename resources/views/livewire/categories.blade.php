@@ -23,25 +23,31 @@
                     <h5><i class="icon fas fa-info"></i> @lang('all.no_data')</h5>
                 </div>
             @else
-                <table class="table table-striped projects table-responsive">
-                    <thead>
+                <div class="table-responsive">
+                    <table class="table table-striped projects ">
+                        <thead>
                         <tr>
                             <th style="width: 10%">
                                 #
                             </th>
-                            <th style="width: 40%">
+                            <th style="width: 15%">
                                 @lang('all.name')
                             </th>
                             <th style="width: 30%">
+                                @lang('all.desc')
+                            </th>
+                            <th style="width: 20%">
+                                @lang('all.photo')
+                            </th>
+                            <th style="width: 10%">
                                 @lang('all.color')
                             </th>
-
-                            <th style="width: 20%">
+                            <th style="width: 15%">
                                 @lang('all.actions')
                             </th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         @foreach ($categories as $category)
                             <tr>
                                 <td>
@@ -51,24 +57,27 @@
                                     <a href="{{ route('admin.categories.show', $category) }}">
                                         {{ $category->name }}
                                     </a>
-
                                 </td>
 
                                 <td>
-                                    <button class="btn" style="background-color:{{ $category->color }}">{{ $category->color }}</button>
+                                    {{ $category->desc }}
+                                </td>
+
+
+                                <td>
+                                    <img class="img-thumbnail" width="150" height="150" src="{{ $category->image }}">
+                                </td>
+
+                                <td>
+                                    <button class="btn"
+                                            style="background-color:{{ $category->color }}">{{ $category->color }}</button>
                                 </td>
 
 
                                 <td class="project-actions text-right">
-                                    {{-- <a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-folder">
-                                </i>
-                                View
-                            </a> --}}
-
                                     @if ($delete_dialog)
                                         <button class="btn btn-danger btn-sm" data-target="#delete-modal"
-                                            data-toggle="modal" wire:click="deleteId({{ $category->id }})">
+                                                data-toggle="modal" wire:click="deleteId({{ $category->id }})">
                                             <i class="fas fa-trash">
                                             </i>
                                             @lang('all.delete')
@@ -82,7 +91,7 @@
                                             </button>
                                         @else
                                             <button class="btn btn-danger btn-sm"
-                                                wire:click="deleteId({{ $category->id }})">
+                                                    wire:click="deleteId({{ $category->id }})">
                                                 <i class="fas fa-trash">
                                                 </i>
                                                 @lang('all.delete')
@@ -92,8 +101,9 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             @endif
         </div>
         <!-- /.card-body -->
