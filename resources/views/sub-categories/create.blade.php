@@ -28,7 +28,7 @@
                         @endforeach
                     </select>
                     @error('category_id')
-                    <span class="invalid-feedback">{{ $message }}</span>
+                        <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 

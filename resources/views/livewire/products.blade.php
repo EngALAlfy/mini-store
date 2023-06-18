@@ -4,67 +4,106 @@
     <div class="card">
 
         <div class="card-header">
-            <div class="card-title">
+            <div class="card-title ">
                 <div class=" input-group input-group-sm m-auto" style="width: 150px">
                     <input class="form-control" type="search" wire:model="search" placeholder="@lang('all.search')">
                 </div>
             </div>
 
-            <div class="d-flex card-tools">
-                <button class="btn btn-success" data-toggle="modal" data-target="#add-price-modal" type="button"><i
+            <div class=" card-tools">
+                <button class="btn btn-success" data-toggle="modal" data-target="#add-product-modal" type="button"><i
                         class="fa fa-plus mr-2"></i> @lang('all.add')
                 </button>
 
             </div>
         </div>
         <div class="card-body p-0">
-            @if ($prices == null || count($prices) <= 0)
+            @if ($products == null || count($products) <= 0)
                 <div class="alert alert-info m-l-10 m-r-10">
                     <h5><i class="icon fas fa-info"></i> @lang('all.no_data')</h5>
                 </div>
             @else
-                <table class="table table-striped projects table-responsive">
+                <div class="table-responsive">
+                <table class="table table-striped projects">
                     <thead>
                         <tr>
-                            <th style="width: 10%">
+                            <th style="width: 5%">
                                 #
                             </th>
-                            <th style="width: 50%">
+                            <th style="width: 15%">
                                 @lang('all.name')
                             </th>
-                            <th style="width: 40%">
+                            <th style="width: 15%">
+                                @lang('all.photo')
+                            </th>
+                            <th style="width: 15%">
+                                @lang('all.desc')
+                            </th>
+                            <th style="width: 10%">
+                                @lang('all.category')
+                            </th>
+                            <th style="width: 10%">
+                                @lang('all.sub_category')
+                            </th>
+                            <th style="width: 10%">
+                                @lang('all.price')
+                            </th>
+                            <th style="width: 10%">
+                                @lang('all.date')
+                            </th>
+                            <th style="width: 10%">
                                 @lang('all.actions')
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($prices as $price)
+                        @foreach ($products as $product)
                             <tr>
                                 <td>
-                                    <a href="{{ route('admin.prices.show', $price) }}">#{{ $price->id }}</a>
+                                    #{{ $product->id }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.prices.show', $price) }}">
-                                        {{ $price->name }}
+                                        {{ $product->name }}
+                                </td>
+
+                                <td>
+                                    <img class="img-size-64 img-thumbnail" src="{{ $product->image }}">
+                                </td>
+
+                                <td>
+                                    <a href="{{ route('admin.categories.show', $product->category) }}">
+                                        {{ $product->category->name }}
                                     </a>
+
+                                </td>
+
+                                <td>
+                                    <a href="{{ route('admin.sub-categories.show', $product->subCategory) }}">
+                                        {{ $product->subCategory->name }}
+                                    </a>
+
+                                </td>
+
+                                 <td>
+
+                                        {{ $product->price }}
+
+                                </td>
+                                <td>
+                                        {{ $product->created_at->format("Y-m-d") }}
                                 </td>
 
                                 <td class="project-actions text-right">
-                                    {{-- <a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-folder">
-                                </i>
-                                View
-                            </a> --}}
 
                                     @if ($delete_dialog)
                                         <button class="btn btn-danger btn-sm" data-target="#delete-modal"
-                                            data-toggle="modal" wire:click="deleteId({{ $price->id }})">
+                                            data-toggle="modal" wire:click="deleteId({{ $product->id }})">
                                             <i class="fas fa-trash">
                                             </i>
                                             @lang('all.delete')
                                         </button>
                                     @else
-                                        @if ($deleteId == $price->id)
+                                        @if ($deleteId == $product->id)
                                             <button class="btn btn-warning btn-sm" wire:click="delete">
                                                 <i class="fas fa-check">
                                                 </i>
@@ -72,7 +111,7 @@
                                             </button>
                                         @else
                                             <button class="btn btn-danger btn-sm"
-                                                wire:click="deleteId({{ $price->id }})">
+                                                wire:click="deleteId({{ $product->id }})">
                                                 <i class="fas fa-trash">
                                                 </i>
                                                 @lang('all.delete')
@@ -84,11 +123,12 @@
                         @endforeach
                     </tbody>
                 </table>
+                </div>
             @endif
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
-            <span class="float-left">{{ $prices->links() }}</span>
+            <span class="float-left">{{ $products->links() }}</span>
 
             <div class="form-group float-right">
 
@@ -106,12 +146,12 @@
 
     </div>
 
-    @livewire('create-price')
+    @livewire('create-product')
 
     @push('scripts')
         <script>
-            Livewire.on('price_stored', () => {
-                $('#add-price-modal').modal('hide');
+            Livewire.on('product_stored', () => {
+                $('#add-product-modal').modal('hide');
             });
         </script>
     @endpush
