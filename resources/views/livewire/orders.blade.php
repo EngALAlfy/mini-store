@@ -18,14 +18,14 @@
             </div>
         </div>
         <div class="card-body p-0">
-            @if ($products == null || count($products) <= 0)
+            @if ($orders == null || count($orders) <= 0)
                 <div class="alert alert-info m-l-10 m-r-10">
                     <h5><i class="icon fas fa-info"></i> @lang('all.no_data')</h5>
                 </div>
             @else
                 <div class="table-responsive">
-                <table class="table table-striped projects">
-                    <thead>
+                    <table class="table table-striped projects">
+                        <thead>
                         <tr>
                             <th style="width: 5%">
                                 #
@@ -55,57 +55,54 @@
                                 @lang('all.actions')
                             </th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($products as $product)
+                        </thead>
+                        <tbody>
+                        @foreach ($orders as $order)
                             <tr>
                                 <td>
-                                    #{{ $product->id }}
+                                    #{{ $order->id }}
                                 </td>
                                 <td>
-                                        {{ $product->name }}
+                                    {{ $order->client_name }}
+                                </td>
+                                <td>
+                                    {{ $order->client_email }}
+                                </td>
+                                <td>
+                                    {{ $order->client_phone }}
+                                </td>
+                                <td>
+                                    {{ $order->client_address }}
+                                </td>
+                                <td>
+                                    {{ $order->product->name }}
+                                </td>
+                                <td>
+                                    <img width="150" class="img-thumbnail" src="{{ $order->product->image }}">
                                 </td>
 
                                 <td>
-                                    <img width="150"  class="img-thumbnail" src="{{ $product->image }}">
+                                    {{ $order->product->getPrice() }}
                                 </td>
 
                                 <td>
-                                    {{ $product->desc }}
+                                    {{ $order->getPrice() }}
                                 </td>
 
                                 <td>
-                                    <a href="{{ route('admin.categories.show', $product->category) }}">
-                                        {{ $product->category->name }}
-                                    </a>
-                                </td>
-
-                                <td>
-                                    <a href="{{ route('admin.sub-categories.show', $product->subCategory) }}">
-                                        {{ $product->subCategory->name }}
-                                    </a>
-                                </td>
-
-                                 <td>
-
-                                        {{ $product->getPrice() }}
-
-                                </td>
-                                <td>
-                                        {{ $product->created_at->format("Y-m-d") }}
+                                    {{ $order->created_at->format("Y-m-d") }}
                                 </td>
 
                                 <td class="project-actions text-right">
-
                                     @if ($delete_dialog)
                                         <button class="btn btn-danger btn-sm" data-target="#delete-modal"
-                                            data-toggle="modal" wire:click="deleteId({{ $product->id }})">
+                                                data-toggle="modal" wire:click="deleteId({{ $order->id }})">
                                             <i class="fas fa-trash">
                                             </i>
                                             @lang('all.delete')
                                         </button>
                                     @else
-                                        @if ($deleteId == $product->id)
+                                        @if ($deleteId == $order->id)
                                             <button class="btn btn-warning btn-sm" wire:click="delete">
                                                 <i class="fas fa-check">
                                                 </i>
@@ -113,7 +110,7 @@
                                             </button>
                                         @else
                                             <button class="btn btn-danger btn-sm"
-                                                wire:click="deleteId({{ $product->id }})">
+                                                    wire:click="deleteId({{ $order->id }})">
                                                 <i class="fas fa-trash">
                                                 </i>
                                                 @lang('all.delete')
@@ -123,14 +120,14 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </div>
             @endif
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
-            <span class="float-left">{{ $products->links() }}</span>
+            <span class="float-left">{{ $orders->links() }}</span>
 
             <div class="form-group float-right">
 
@@ -147,16 +144,6 @@
         </div>
 
     </div>
-
-    @livewire('create-product')
-
-    @push('scripts')
-        <script>
-            Livewire.on('product_stored', () => {
-                $('#add-product-modal').modal('hide');
-            });
-        </script>
-    @endpush
 
     @include('includes.delete')
     <!-- /.modal -->

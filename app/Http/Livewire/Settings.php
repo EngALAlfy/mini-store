@@ -20,25 +20,13 @@ class Settings extends Component
     public $collaps_sidebar;
     public $font;
     public $notification_sound;
+    public $lng;
+    public $lat;
 
-    public $head_code;
-    public $header_ad;
-    public $side_ad;
-    public $footer_ad;
-    public $facebook;
-    public $facebook_followers_count;
-    public $instagram;
-    public $instagram_followers_count;
-    public $youtube;
-    public $youtube_followers_count;
-
-    public $fcm_token;
     public $perPage;
 
-    public $phone;
-    public $address;
-    public $email;
-
+    public $orders_email;
+    public $orders_whatsapp;
 
     public function mount()
     {
@@ -49,23 +37,17 @@ class Settings extends Component
         $this->font = Setting::find('font')->value ?? 'font-5';
         $this->notification_sound = Setting::find('notification_sound')->value ?? 'no_sound';
 
-        $this->head_code = Setting::find('head_code')->value ?? null;
-        $this->header_ad = Setting::find('header_ad')->value ?? null;
-        $this->footer_ad = Setting::find('footer_ad')->value ?? null;
-        $this->side_ad = Setting::find('side_ad')->value ?? null;
-        $this->facebook = Setting::find('facebook')->value ?? null;
-        $this->facebook_followers_count = Setting::find('facebook_followers_count')->value ?? null;
-        $this->instagram = Setting::find('instagram')->value ?? null;
-        $this->instagram_followers_count = Setting::find('instagram_followers_count')->value ?? null;
-        $this->youtube = Setting::find('youtube')->value ?? null;
-        $this->youtube_followers_count = Setting::find('youtube_followers_count')->value ?? null;
-
-        $this->fcm_token = Setting::find('fcm_token')->value ?? null;
         $this->perPage = Setting::find('perPage')->value ?? 10;
 
         $this->phone = Setting::find('phone')->value ?? null;
         $this->email = Setting::find('email')->value ?? null;
         $this->address = Setting::find('address')->value ?? null;
+
+        $this->lng = Setting::find('lng')->value ?? null;
+        $this->lat = Setting::find('lat')->value ?? null;
+
+        $this->orders_whatsapp = Setting::find('orders_whatsapp')->value ?? null;
+        $this->orders_email = Setting::find('orders_email')->value ?? null;
    }
 
     public function updated($name, $value)

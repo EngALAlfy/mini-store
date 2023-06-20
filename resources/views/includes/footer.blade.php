@@ -15,7 +15,7 @@
             $emojies = [12 , 13  , 15 ,16 ,19,21,22,25,26 , 36 , 38 , 67];
             $emoji = '&#1285' . $emojies[rand(0 , count($emojies) - 1)];
         @endphp
-        <a class="text-muted" target="_blank" href="{{route('copyright')}}">صنع بواسطة {!!$emoji!!} الالفي.كوم</a>
+        <a class="text-muted" target="_blank" href="https://alalfy.com">صنع بواسطة {!!$emoji!!} الالفي.كوم</a>
     </div>
 
     <div id="time" style="cursor: not-allowed" class="float-left d-none d-sm-inline-block"></div>

@@ -30,6 +30,29 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
+Route::as("deployment.")->group(function (){
+    if(app()->isLocal()){
+        Route::get("/migrate" , function (){
+            Artisan::call("migrate");
+            return Artisan::output();
+        });
+        Route::get("/migrate/fresh" , function (){
+            Artisan::call("migrate:fresh");
+            return Artisan::output();
+        });
+
+        Route::get("/storage/link" , function (){
+            Artisan::call("storage:link");
+            return Artisan::output();
+        });
+
+        Route::get("/seed" , function (){
+            Artisan::call("db:seed");
+            return Artisan::output();
+        });
+    }
+});
+
 Route::get('/cache/clear', function () {
     $output = "";
     Artisan::call('cache:clear');
@@ -51,8 +74,13 @@ Route::get('/cache/clear', function () {
 Route::resource('backup', BackupController::class)->except(['edit', 'update', 'store']);
 Route::get('/backup/restore/{name}', [BackupController::class, 'restore'])->name('backup.restore');
 
-Route::view('/copyright', 'home.copyright')->name('copyright');
+Route::get("/test" , function (){
+    $greenApi = new \GreenApi\RestApi\GreenApiClient( "7103833581", "809bf67885ee4134816c2f08fbb4f5b6fb92f27466c24d81b0" );
+    $result = $greenApi->sending->sendMessage('201559996130@c.us', "رسالة اختبار من الموقع يارب تفهم بقي");
 
+    dd($result);
+    return $result;
+});
 
 Route::group(
     [

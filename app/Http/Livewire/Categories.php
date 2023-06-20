@@ -16,7 +16,7 @@ class Categories extends Component
 
     public $perPage = 50;
     public $orderBy = 'created_at';
-    public $order = 'asc';
+    public $order = 'desc';
     public $search = '';
 
     public $deleteId;

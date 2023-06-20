@@ -29,7 +29,6 @@ class CreateProduct extends Component
 
     protected $rules = [
         "name" => "required|unique:products,name|min:2|max:150|string",
-        "category_id" => "required|exists:categories,id",
         "sub_category_id" => "required|exists:sub_categories,id",
         "image" => "required|image|max:300",
         "price" => "nullable",
@@ -40,10 +39,6 @@ class CreateProduct extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
-
-        if($propertyName == "category_id"){
-            $this->subCategories = SubCategory::where('category_id' , $this->category_id)->get();
-        }
     }
 
 
@@ -53,6 +48,10 @@ class CreateProduct extends Component
 
         if (isset($data['image'])){
             $data['image'] = upload_image($data['image']);
+        }
+
+        if (isset($data['sub_category_id'])){
+            $data['category_id'] = SubCategory::find($this->sub_category_id)->category_id;
         }
 
         Product::create($data);
@@ -72,7 +71,7 @@ class CreateProduct extends Component
 
     public function render()
     {
-        $categories = Category::all();
+        $categories = Category::whereHas('subCategories')->get();
         return view('livewire.create-product', compact('categories'));
     }
 }

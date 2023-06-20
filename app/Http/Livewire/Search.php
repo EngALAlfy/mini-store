@@ -14,7 +14,7 @@ class Search extends Component
 
     public $perPage = 50;
     public $orderBy = 'order';
-    public $order = 'asc';
+    public $order = 'desc';
     public $query = '';
 
 

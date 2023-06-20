@@ -20,8 +20,13 @@ class Category extends Model
         return $image == null ? asset("assets/img/file-input-placeholder.png") : asset("/storage/photos") . "/" . $image ;
     }
 
-    public function posts()
+    public function products()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Product::class);
+    }
+
+    public function subCategories()
+    {
+        return $this->hasMany(SubCategory::class);
     }
 }

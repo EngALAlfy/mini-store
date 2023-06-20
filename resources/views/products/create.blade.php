@@ -19,37 +19,25 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    <select wire:ignore wire:model="category_id" name="category_id"
-                            class="form-control @error('category_id') is-invalid @enderror select2" style="width: 100%">
+                <div wire:ignore class="form-group">
+                    <select name="sub_category_id" id="sub_category_id"
+                            class="form-control @error('sub_category_id') is-invalid @enderror select2" style="width: 100%">
                         <option value="0">@lang('all.category')</option>
 
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @foreach ($categories as $category)
+                                <optgroup label="{{ $category->name }}">
+                                    @foreach ($category->subCategories as $subCategory)
+                                        <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
+                                    @endforeach
+                                </optgroup>
+                            @endforeach
                         @endforeach
                     </select>
-                    @error('category_id')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    @error('sub_category_id')
+                        <small class="form-text text-danger">{{ $message }}</small>
                     @enderror
                 </div>
-
-                @if($category_id)
-                    <div wire:ignore class="form-group">
-                        <select wire:model="sub_category_id" name="sub_category_id"
-                                class="form-control @error('sub_category_id') is-invalid @enderror select2"
-                                style="width: 100%">
-                            <option value="0">@lang('all.sub_category')</option>
-
-                            @foreach ($subCategories as $subCategory)
-                                <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('sub_category_id')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                @endif
-
                 <div class="form-group">
                     <input placeholder="@lang('all.price')" type="number" step="0.5" wire:model.defer="price" name="price"
                            class="form-control @error('price') is-invalid @enderror">
@@ -89,6 +77,12 @@
         href="{{asset("assets/adminLTE/plugins/select2/css/select2.css")}}"
         type="text/css"
     />
+
+    <style>
+        .select2-results__group{
+            text-decoration:underline;
+        }
+    </style>
 @endpush
 
 @push('scripts')
@@ -106,13 +100,9 @@
 
         });
 
-        $('#category_id').on('change', function () {
-            let data = $('#category_id').select2("val");
-            @this.set('category_id', data);
-        });
-
         $('#sub_category_id').on('change', function () {
             let data = $('#sub_category_id').select2("val");
+            console.log(data)
             @this.set('sub_category_id', data);
         });
     </script>
