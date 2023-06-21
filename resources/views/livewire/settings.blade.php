@@ -108,7 +108,7 @@
 
                 </div>
                 <div class="col-md-6 ">
-                    <a class="btn btn-sm btn-warning btn-block text-right" href="{{ route('clear-cache') }}"><i
+                    <a class="btn btn-sm btn-warning btn-block text-right" href="{{ route('deployment.clear-cache') }}"><i
                             class="fa fa-trash mr-2"></i>@lang('all.clear_cache')</a>
                     <a class="btn btn-sm btn-info btn-block text-right" href="{{ route('backup.index') }}"
                        target="_blank"><i class="fa fa-retweet mr-2"></i>@lang('all.backup')</a>
@@ -263,7 +263,7 @@
                     <div class="form-group">
                         <label for="orders_email">@lang('all.email')</label>
                         <input class="form-control @error('orders_email') is-invalid @enderror" id="orders_email"
-                               wire:model="orders_email" placeholder="@lang('all.orders_email')"/>
+                               wire:model="orders_email" placeholder="name@mail.com"/>
                         @error('orders_email')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

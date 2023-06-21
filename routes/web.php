@@ -30,57 +30,55 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::as("deployment.")->group(function (){
-    if(app()->isLocal()){
-        Route::get("/migrate" , function (){
+//Route::get("/test", function () {});
+
+Route::as("deployment.")->group(function () {
+    if (app()->isLocal()) {
+        Route::get("/migrate", function () {
             Artisan::call("migrate");
             return Artisan::output();
         });
-        Route::get("/migrate/fresh" , function (){
+        Route::get("/migrate/fresh", function () {
             Artisan::call("migrate:fresh");
             return Artisan::output();
         });
 
-        Route::get("/storage/link" , function (){
+        Route::get("/storage/link", function () {
             Artisan::call("storage:link");
             return Artisan::output();
         });
 
-        Route::get("/seed" , function (){
+        Route::get("/seed", function () {
             Artisan::call("db:seed");
             return Artisan::output();
         });
     }
+
+
+    Route::get('/cache/clear', function () {
+        $title = __('all.clear_cache');
+
+        $output = "";
+        Artisan::call('cache:clear');
+        $output .= "<br/>";
+        $output .= Artisan::output();
+        Artisan::call('view:clear');
+        $output .= "<br/>";
+        $output .= Artisan::output();
+        Artisan::call('route:clear');
+        $output .= "<br/>";
+        $output .= Artisan::output();
+        Artisan::call('config:clear');
+        $output .= "<br/>";
+        $output .= Artisan::output();
+
+        return view('deployment.output', compact('output', 'title'));
+    })->name("clear-cache");
 });
 
-Route::get('/cache/clear', function () {
-    $output = "";
-    Artisan::call('cache:clear');
-    $output .= "<br/>";
-    $output .= Artisan::output();
-    Artisan::call('view:clear');
-    $output .= "<br/>";
-    $output .= Artisan::output();
-    Artisan::call('route:clear');
-    $output .= "<br/>";
-    $output .= Artisan::output();
-    Artisan::call('config:clear');
-    $output .= "<br/>";
-    $output .= Artisan::output();
-
-    return view('cache.clear', compact('output'));
-})->name("clear-cache");
 
 Route::resource('backup', BackupController::class)->except(['edit', 'update', 'store']);
 Route::get('/backup/restore/{name}', [BackupController::class, 'restore'])->name('backup.restore');
-
-Route::get("/test" , function (){
-    $greenApi = new \GreenApi\RestApi\GreenApiClient( "7103833581", "809bf67885ee4134816c2f08fbb4f5b6fb92f27466c24d81b0" );
-    $result = $greenApi->sending->sendMessage('201559996130@c.us', "رسالة اختبار من الموقع يارب تفهم بقي");
-
-    dd($result);
-    return $result;
-});
 
 Route::group(
     [
@@ -139,9 +137,12 @@ Route::group(
 
             Route::resource('categories', CategoryController::class)->only(['index', 'show']);
             Route::resource('sub-categories', SubCategoryController::class)->only(['index', 'show']);
-            Route::resource('orders', OrderController::class)->only(['index', 'show']);
+            Route::resource('orders', OrderController::class)->only(['index']);
             Route::resource('products', ProductController::class)->only(['index', 'show']);
             Route::resource('pages', PageController::class)->only(['index', 'show', 'create', 'store']);
         });
     }
 );
+
+Route::post("/orders", [OrderController::class , "store"])->name('orders.store');
+Route::get("/orders/{order}/details", [OrderController::class , "details"])->name('orders.details');

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 /// get categories
-Route::get('categories' , [CategoryController::class , 'index']);
+Route::post("/orders", [OrderController::class , "store"])->name('orders.store');

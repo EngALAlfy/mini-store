@@ -1,7 +1,7 @@
 @extends('layout.auth')
 
 @section('title')
-    @lang('all.clear_cache')
+    {{ $title ?? "Deployment Result" }}
 @endsection
 
 @section('content')

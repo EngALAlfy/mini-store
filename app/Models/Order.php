@@ -11,11 +11,14 @@ class Order extends Model
 
     protected $fillable = [
         'product_id',
-        'product_price',
-        'product_quantity',
         'client_name',
         'client_phone',
         'client_email',
         'client_address',
+        'message',
     ];
+
+    function product(){
+        return $this->belongsTo(Product::class);
+    }
 }
