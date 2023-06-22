@@ -54,6 +54,10 @@ class CreateProduct extends Component
             $data['category_id'] = SubCategory::find($this->sub_category_id)->category_id;
         }
 
+        if(!$data['price']){
+            $data["price"] = 0;
+        }
+
         Product::create($data);
 
         $this->success();

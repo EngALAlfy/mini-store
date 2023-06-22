@@ -88,25 +88,9 @@ class OrderController extends Controller
         $client_phone = $order->client_phone;
         $order_url = route('orders.details' , $order);
 
-        return
-    "*New Order* 📢📢📢
-    _new order from your website_
-
-    *# Order details*
-
-    *Client name* : $client_name
-    *Client email* : $client_email
-    *Client phone* : $client_phone
-
-    *Product name* : $product_name
-    *Product ID* : $product_id
-    *Order ID* : $order_id
-
-    *Message* :
-    $message
-    -------------------------------------------------------
-    [Order Link]
-    $order_url";
+        return __('all.order_details_text' , compact('product_id' ,
+            'product_name' , 'order_id' ,
+            'message' , 'client_email' , 'client_phone' , 'client_name' , 'order_url'));
 
     }
 }

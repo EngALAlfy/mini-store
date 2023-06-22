@@ -9,13 +9,6 @@
                     <input class="form-control" type="search" wire:model="search" placeholder="@lang('all.search')">
                 </div>
             </div>
-
-            <div class=" card-tools">
-                <button class="btn btn-success" data-toggle="modal" data-target="#add-product-modal" type="button"><i
-                        class="fa fa-plus mr-2"></i> @lang('all.add')
-                </button>
-
-            </div>
         </div>
         <div class="card-body p-0">
             @if ($orders == null || count($orders) <= 0)
@@ -33,20 +26,20 @@
                             <th style="width: 15%">
                                 @lang('all.name')
                             </th>
-                            <th style="width: 15%">
-                                @lang('all.photo')
-                            </th>
-                            <th style="width: 15%">
-                                @lang('all.desc')
+                            <th style="width: 10%">
+                                @lang('all.email')
                             </th>
                             <th style="width: 10%">
-                                @lang('all.category')
+                                @lang('all.phone')
+                            </th>
+                            <th style="width: 20%">
+                                @lang('all.message')
                             </th>
                             <th style="width: 10%">
-                                @lang('all.sub_category')
+                                @lang('all.product')
                             </th>
                             <th style="width: 10%">
-                                @lang('all.price')
+                                @lang('all.image')
                             </th>
                             <th style="width: 10%">
                                 @lang('all.date')
@@ -72,21 +65,13 @@
                                     {{ $order->client_phone }}
                                 </td>
                                 <td>
-                                    {{ $order->client_address }}
+                                    {{ $order->message }}
                                 </td>
                                 <td>
                                     {{ $order->product->name }}
                                 </td>
                                 <td>
                                     <img width="150" class="img-thumbnail" src="{{ $order->product->image }}">
-                                </td>
-
-                                <td>
-                                    {{ $order->product->getPrice() }}
-                                </td>
-
-                                <td>
-                                    {{ $order->getPrice() }}
                                 </td>
 
                                 <td>

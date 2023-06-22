@@ -1,24 +1,25 @@
 @component('mail::message')
-# New Order 📢📢📢
+# @lang("all.email_new_order") 📢📢📢
 
-New order from you store **{{ config('app.name') }}**
+@lang('all.email_new_order_desc') **{{ config('app.name') }}**
 
-## Order Details
+## @lang('all.email_order_details')
 
-### Client Name  : {{$order->client_name}}
-### Client Email  : {{$order->client_email}}
-### Client Phone  : {{$order->client_phone}}
-### Order ID      : #{{$order->id}}
-### Product ID    : #{{$order->product_id}}
+### @lang('all.email_client_name')  : {{$order->client_name}}
+### @lang('all.email_client_email')  : {{$order->client_email}}
+### @lang('all.email_client_phone')  : {{$order->client_phone}}
+### @lang('all.email_order_id')      : #{{$order->id}}
+### @lang('all.email_product_name')    : #{{$order->product->name}}
+### @lang('all.email_product_id')    : #{{$order->product_id}}
 ----
-## Message :
+## @lang('all.email_message') :
 {!! $order->message !!}
 ----
 
 @component('mail::button', ['url' => route('orders.details', $order)])
-View Order
+@lang('all.email_view_order')
 @endcomponent
 
-Thanks,<br>
+@lang('all.email_thanks'),<br>
 {{ config('app.name') }}
 @endcomponent

@@ -174,5 +174,37 @@ return [
     "contact_us" => "Contact us",
     "contacts" => "Contacts",
     "are_you_sure_to_delete_all" => "Are you sure to delete all data?",
+    "order_details_text" => "*New Order* 📢📢📢
+    _new order from your website_
+
+    *# Order details*
+
+    *Client name* : :client_name
+    *Client email* : :client_email
+    *Client phone* : :client_phone
+
+    *Product name* : :product_name
+    *Product ID* : :product_id
+    *Order ID* : :order_id
+
+    *Message* :
+    :message
+    -------------------------------------------------------
+    [Order Link]
+    :order_url",
+
+    "email_new_order" => "New Order",
+    "email_new_order_desc" => "New order from you store",
+    "email_message" => "Message",
+    "email_view_order" => "View order",
+    "email_thanks" => "Thanks",
+    "email_client_name" => "Client name",
+    "email_client_phone" => "Client phone",
+    "email_client_email" => "Client email",
+    "email_product_name" => "Product name",
+    "email_product_id" => "Product ID",
+    "email_order_id" => "Order ID",
+    "email_order_details" => "Order Details",
+
     "" => "",
 ];

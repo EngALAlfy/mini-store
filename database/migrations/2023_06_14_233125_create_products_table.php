@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('name' , 150);
             $table->string('desc' , 600);
             $table->string('color' , 10)->nullable();
-            $table->float('price')->default(0);
+            $table->float('price')->nullable()->default(0);
             $table->string('image' , 300)->nullable();
             $table->timestamps();
         });
