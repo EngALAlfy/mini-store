@@ -34,10 +34,10 @@ class CreateSubCategory extends Component
         $data = $this->validate();
 
         SubCategory::create($data);
-
         $this->success();
 
         $this->emit('sub_category_stored');
+
         $this->name = null;
         $this->category_id = null;
     }

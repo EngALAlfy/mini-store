@@ -46,7 +46,7 @@ body {
 
 #header {
     height: 80px;
-    transition: all 0.5s;
+    /*transition: all 0.5s;*/
     z-index: 997;
     padding: 20px 0;
     background: var(--primary-color);
@@ -259,7 +259,6 @@ body {
 
 
 h1 {
-    text-align: center;
     margin-top: 30px;
 }
 
@@ -277,10 +276,6 @@ h1 {
     bottom: 0;
     left: 0;
     width: 100%;
-}
-
-.container {
-    margin-bottom: 100px;
 }
 
 .modal-content {
@@ -308,3 +303,32 @@ h1 {
     font-size: 24px;
     margin-top: 0;
 }
+
+
+/*
+Home section
+*/
+.home-section {
+    /*border-radius: 10px;*/
+    color: #fff;
+}
+.home-section .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+.home-section .content {
+    margin-top: 20px;
+}
+.home-section .content h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.home-section .content p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+

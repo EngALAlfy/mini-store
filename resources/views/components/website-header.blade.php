@@ -6,9 +6,9 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Products</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li><a href="">@lang('website.home')</a></li>
+                <li><a href="">@lang('website.categories')</a></li>
+                <li><a href="">@lang('website.contact_us')</a></li>
 
                 <li class="float-right">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown"

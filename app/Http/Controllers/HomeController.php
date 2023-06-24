@@ -26,7 +26,8 @@ class HomeController extends Controller
 
     function websiteHome()
     {
-        return view('website.home.index');
+        $categories = Category::limit(3)->get();
+        return view('website.home.index' , compact('categories'));
     }
 
     function search(Request $request)

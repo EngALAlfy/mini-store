@@ -30,13 +30,23 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    <input wire:model.defer="color" name="color"
-                           class="form-control @error('color') is-invalid @enderror" placeholder="@lang('all.color')">
+                <!-- Color Picker -->
+                <div wire:ignore class="form-group">
+                    <div class="input-group my-colorpicker2">
+                        <input type="text" name="color"
+                               class="form-control @error('color') is-invalid @enderror" placeholder="@lang('all.color')">
+
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-square"></i></span>
+                        </div>
+                    </div>
+
                     @error('color')
-                    <span class="invalid-feedback">{{ $message }}</span>
+                        <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
+                    <!-- /.input group -->
                 </div>
+                <!-- /.form group -->
 
             </div>
             <div class="modal-footer justify-content-between">
@@ -49,5 +59,26 @@
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
+
+    @push('styles')
+        <link rel="stylesheet" href="{{asset("assets/adminLTE/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css")}}">
+    @endpush
+
+    @push("scripts")
+        <!-- bootstrap color picker -->
+        <script src="{{asset("assets/adminLTE/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js")}}"></script>
+
+        <script>
+            //color picker with addon
+            $('.my-colorpicker2').colorpicker()
+
+            $('.my-colorpicker2').on('colorpickerChange', function(event) {
+                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+                @this.set('color', event.color.toString());
+            })
+        </script>
+    @endpush
+
 </div>
+
 

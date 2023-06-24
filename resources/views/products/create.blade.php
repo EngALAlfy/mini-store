@@ -102,7 +102,6 @@
 
         $('#sub_category_id').on('change', function () {
             let data = $('#sub_category_id').select2("val");
-            console.log(data)
             @this.set('sub_category_id', data);
         });
     </script>

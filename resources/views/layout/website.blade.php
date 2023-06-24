@@ -19,9 +19,6 @@
     <!-- dims (margins and paddings -->
     <link rel="stylesheet" href="{{ asset('assets/custom/css/dims.css') }}">
 
-    <!-- Google font -->
-    <link href="{{ asset('assets/website/css/fonts.css') }}" rel="stylesheet">
-
     <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="{{ asset('assets/website/css/font-awesome.min.css') }}">
 
@@ -51,9 +48,6 @@
         <script src="{{ asset('assets/website/js/rtl/popper.min.js') }}"></script>
         <script src="{{ asset('assets/website/js/bootstrap.min.js') }}"></script>
     @endif
-
-    <script src="{{ asset('assets/website/js/jquery.stellar.min.js') }}"></script>
-
     @stack('scripts')
 </body>
 

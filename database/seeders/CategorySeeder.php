@@ -19,7 +19,5 @@ class CategorySeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         DB::table('categories')->truncate();
         Schema::enableForeignKeyConstraints();
-
-        Category::factory(10)->create();
     }
 }
