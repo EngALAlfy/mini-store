@@ -90,4 +90,13 @@
 
 </script>
 
+{{-- image previewd zoom --}}
+<script src="{{asset('assets/custom/js/image-preview.js')}}"></script>
+
+<script>
+    $(function () {
+        initializeImagePreview();
+    })
+</script>
+
 @stack('scripts')

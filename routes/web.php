@@ -96,6 +96,11 @@ Route::group(
         ]
     ],
     function () {
+
+        Route::post("/orders", [OrderController::class , "store"])->name('orders.store');
+        Route::get("/orders/{order}/details", [OrderController::class , "details"])->name('orders.details');
+
+
         Route::view('login', 'auth.login-v2')->name('login')->middleware('guest');
         Route::post('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
         Route::get('demo-login', [AuthController::class, 'demoLogin'])->name('demoLogin')->middleware('guest');
@@ -143,6 +148,3 @@ Route::group(
         });
     }
 );
-
-Route::post("/orders", [OrderController::class , "store"])->name('orders.store');
-Route::get("/orders/{order}/details", [OrderController::class , "details"])->name('orders.details');

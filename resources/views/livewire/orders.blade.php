@@ -71,7 +71,7 @@
                                     {{ $order->product->name }}
                                 </td>
                                 <td>
-                                    <img width="150" class="img-thumbnail" src="{{ $order->product->image }}">
+                                    <img width="150" class="img-thumbnail image-previewed" src="{{ $order->product->image }}">
                                 </td>
 
                                 <td>

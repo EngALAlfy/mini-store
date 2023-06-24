@@ -25,6 +25,8 @@
 @endif
 <link rel="stylesheet" href="{{ asset('assets/custom/js/intro.js/themes/introjs-flattener.css') }}">
 
+{{-- image previewd zoom --}}
+<link rel="stylesheet" href="{{asset('assets/custom/css/image-preview.css')}}">
 
 @livewireStyles
 

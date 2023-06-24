@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="{{ asset('assets/adminLTE/plugins/toastr/toastr.css') }}">
 
     @stack('styles')
+
+    {{-- image previewd zoom --}}
+    <link rel="stylesheet" href="{{asset('assets/custom/css/image-preview.css')}}">
+
+    @include('includes.fonts')
 </head>
 
 <body class="hold-transition">
@@ -42,6 +47,16 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('/assets/adminLTE/RTL/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('/assets/adminLTE/plugins/toastr/toastr.min.js') }}"></script>
+
+    {{-- image previewd zoom --}}
+    <script src="{{asset('assets/custom/js/image-preview.js')}}"></script>
+
+    <script>
+        $(function () {
+            initializeImagePreview();
+        })
+    </script>
+
     @stack('scripts')
 </body>
 
