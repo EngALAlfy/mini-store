@@ -1,10 +1,8 @@
 @extends('layout.website')
 
-
 @section('title', __('website.home'))
 
 @section('content')
-
 
     <!-- SECTION -->
     <div class="section">
@@ -12,15 +10,9 @@
         <div class="container">
             <!-- row -->
             <div class="row">
-                <div class="col-md-8">
-                    @livewire('website-posts')
-                </div>
-                <div class="col-md-4">
-
-                    <x-website-sidebar />
+                <div class="col-12">
 
                 </div>
-
             </div>
             <!-- /row -->
         </div>

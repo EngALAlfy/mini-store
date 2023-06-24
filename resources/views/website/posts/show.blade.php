@@ -5,65 +5,85 @@
 
 @section('content')
 
-    <!-- PAGE HEADER -->
-    <div id="post-header" class="page-header">
-        <div class="page-header-bg"
-            style="background-repeat: no-repeat; background-size: cover; background-position: center; background-image: url('{{ $post->image }}');"
-            data-stellar-background-ratio="0.5"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="post-category">
-                        <a href="{{ route('website.categories.show', $post->category) }}">{{ $post->category->name }}</a>
-                    </div>
-                    <h1>{{ $post->name }}</h1>
-                    <ul class="post-meta">
-                        <li>{{ $post->state->name }}</li>
+    <div class="container" style="margin-top: 100px;">
+        <h1>Products</h1>
 
-                        <li><i class="fa fa-dollar"></i> {{ $post->price->name }}</li>
-                    </ul>
+        <div class="mb-3">
+            <span class="category-filter active" data-category="all">All</span>
+            <span class="category-filter" data-category="category1">Category 1</span>
+            <span class="category-filter" data-category="category2">Category 2</span>
+            <span class="category-filter" data-category="category3">Category 3</span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card" data-category="category1">
+                    <img src="vegetable1.jpg" alt="Vegetable 1" class="img-fluid">
+                    <h3>Product 1</h3>
+                    <p>$19.99</p>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#orderModal">Order Now</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card" data-category="category2">
+                    <img src="fruit1.jpg" alt="Fruit 1" class="img-fluid">
+                    <h3>Product 2</h3>
+                    <p>$24.99</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card" data-category="category1">
+                    <img src="vegetable2.jpg" alt="Vegetable 2" class="img-fluid">
+                    <h3>Product 3</h3>
+                    <p>$29.99</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card" data-category="category3">
+                    <img src="fruit2.jpg" alt="Fruit 2" class="img-fluid">
+                    <h3>Product 4</h3>
+                    <p>$34.99</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card" data-category="category1">
+                    <img src="vegetable1.jpg" alt="Vegetable 1" class="img-fluid">
+                    <h3>Product 1</h3>
+                    <p>$19.99</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card" data-category="category2">
+                    <img src="fruit1.jpg" alt="Fruit 1" class="img-fluid">
+                    <h3>Product 2</h3>
+                    <p>$24.99</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card" data-category="category1">
+                    <img src="vegetable2.jpg" alt="Vegetable 2" class="img-fluid">
+                    <h3>Product 3</h3>
+                    <p>$29.99</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card" data-category="category3">
+                    <img src="fruit2.jpg" alt="Fruit 2" class="img-fluid">
+                    <h3>Product 4</h3>
+                    <p>$34.99</p>
+                    <button class="btn btn-primary">Order Now</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /PAGE HEADER -->
-
-    <!-- SECTION -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-12">
-                            <img class="img-fluid w-100" src="{{ $post->image }}" alt="{{ $post->name }}">
-                        </div>
-                        <div class="col-12 m-t-40">{!! $post->content !!}</div>
-                        @isset($post->url)
-                            <div class="col-12 m-t-20">
-                                <a href="{{ $post->url }}" class="btn btn-lg btn-success">@lang('website.book')</a>
-                            </div>
-                        @endisset
-                    </div>
-                </div>
-                <div class="col-md-4">
-
-                    <x-website-sidebar />
-
-                </div>
-
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /SECTION -->
-
-
 
 @endsection
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/adminLTE/plugins/summernote/summernote-lite.css') }}">
-@endpush

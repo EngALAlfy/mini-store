@@ -65,7 +65,7 @@
 
 
                                 <td>
-                                    <img class="img-thumbnail" width="150" height="150" src="{{ $category->image }}">
+                                    <img class="img-thumbnail image-previewed" width="150" height="150" src="{{ $category->image }}">
                                 </td>
 
                                 <td>
