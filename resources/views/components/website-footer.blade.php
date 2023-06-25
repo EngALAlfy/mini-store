@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="container">
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    <div class="container m-t-5">
+        <p> @lang('website.copyright') &copy; {{\Carbon\Carbon::now()->year}}</p>
     </div>
 </footer>

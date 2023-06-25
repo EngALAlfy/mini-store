@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Disease;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\DB;
@@ -28,5 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(SubCategorySeeder::class);
+        $this->call(ProductSeeder::class);
     }
 }

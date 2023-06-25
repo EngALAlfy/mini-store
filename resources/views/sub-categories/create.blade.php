@@ -69,8 +69,11 @@
 
         $('#category_id').on('change', function () {
             let data = $('#category_id').select2("val");
-            @this.
-            set('category_id', data);
+            @this.set('category_id', data);
+        });
+
+        Livewire.on('sub_category_stored', () => {
+            $('#category_id').val('0');
         });
     </script>
 @endpush

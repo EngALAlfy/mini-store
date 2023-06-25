@@ -92,7 +92,7 @@
                                             </td>
 
                                             <td>
-                                                {{ $contact->created_at->format('d-m-Y') }}
+                                                {{ optional($contact->created_at)->format('d-m-Y') }}
                                             </td>
                                             <td>
                                                 <form action="{{ route('admin.contacts.destroy', $contact) }}"

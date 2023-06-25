@@ -64,7 +64,7 @@
                                                 {{ $backup['size'] >= 1001 ? floor($backup['size'] / 1024) . ' MB' : floor($backup['size']) . ' KB' }}
                                             </td>
                                             <td>
-                                                {{ $backup['created_at']->format('Y-m-d') }}
+                                                {{ optional($backup['created_at'])->format('Y-m-d') }}
                                             </td>
 
                                             <td class="project-actions text-right">

@@ -8,5 +8,6 @@ return [
     "products" => "Products",
     "order_now" => "Order now",
     "contact_us" => "Contact us",
+    "copyright" => "All rights reserved",
 
 ];

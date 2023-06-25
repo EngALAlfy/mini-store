@@ -75,7 +75,7 @@
                                 </td>
 
                                 <td>
-                                    {{ $order->created_at->format("Y-m-d") }}
+                                    {{ optional($order->created_at)->format("Y-m-d") }}
                                 </td>
 
                                 <td class="project-actions text-right">

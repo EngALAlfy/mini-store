@@ -7,4 +7,5 @@ return [
     "products" => "المنتجات",
     "order_now" => "اطلب الان",
     "contact_us" => "تواصل معنا",
+    "copyright" => "جميع الحقوق محفوظة",
 ];

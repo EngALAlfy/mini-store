@@ -92,7 +92,7 @@
 
                                 </td>
                                 <td>
-                                        {{ $product->created_at->format("Y-m-d") }}
+                                        {{ optional($product->created_at)->format("Y-m-d") }}
                                 </td>
 
                                 <td class="project-actions text-right">
