@@ -38,13 +38,10 @@
                             <th style="width: 10%">
                                 @lang('all.product')
                             </th>
-                            <th style="width: 10%">
-                                @lang('all.image')
-                            </th>
-                            <th style="width: 10%">
+                            <th style="width: 15%">
                                 @lang('all.date')
                             </th>
-                            <th style="width: 10%">
+                            <th style="width: 15%">
                                 @lang('all.actions')
                             </th>
                         </tr>
@@ -68,12 +65,8 @@
                                     {{ $order->message }}
                                 </td>
                                 <td>
-                                    {{ $order->product->name }}
+                                    <a href="{{route('admin.products.show' , $order->product)}}">{{ $order->product->name }}</a>
                                 </td>
-                                <td>
-                                    <img width="150" class="img-thumbnail image-previewed" src="{{ $order->product->image }}">
-                                </td>
-
                                 <td>
                                     {{ optional($order->created_at)->format("Y-m-d") }}
                                 </td>

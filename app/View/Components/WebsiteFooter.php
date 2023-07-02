@@ -15,6 +15,7 @@ class WebsiteFooter extends Component
     public $facebook;
     public $instagram;
     public $youtube;
+    public $pages;
 
     /**
      * Create a new component instance.
@@ -26,6 +27,7 @@ class WebsiteFooter extends Component
         $this->facebook = Setting::find("facebook")->value ?? "https://facebook.com";
         $this->instagram = Setting::find("instagram")->value ?? "https://instagram.com";
         $this->youtube = Setting::find("youtube")->value ?? "https://youtube.com";
+        $this->pages = Page::all();
     }
 
     /**

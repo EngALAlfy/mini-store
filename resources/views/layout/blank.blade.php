@@ -45,7 +45,7 @@
     <!-- Bootstrap 4 -->
     <script src="{{ asset('assets/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('/assets/adminLTE/RTL/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('/assets/adminLTE/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('/assets/adminLTE/plugins/toastr/toastr.min.js') }}"></script>
 
     {{-- image previewd zoom --}}

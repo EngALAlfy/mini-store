@@ -24,6 +24,7 @@
 .zoom-preview .zoomed-image {
     max-width: 80%;
     max-height: 80%;
+    scale: 2;
 }
 
 .image-previewed{

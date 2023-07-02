@@ -30,19 +30,19 @@
                             <th style="width: 10%">
                                 #
                             </th>
-                            <th style="width: 15%">
+                            <th style="width: 20%">
                                 @lang('all.name')
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 25%">
                                 @lang('all.desc')
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 15%">
                                 @lang('all.photo')
                             </th>
                             <th style="width: 10%">
                                 @lang('all.color')
                             </th>
-                            <th style="width: 15%">
+                            <th style="width: 20%">
                                 @lang('all.actions')
                             </th>
                         </tr>
@@ -65,7 +65,7 @@
 
 
                                 <td>
-                                    <img class="img-thumbnail image-previewed" width="150" height="150" src="{{ $category->image }}">
+                                    <img class="img-thumbnail image-previewed" width="150" height="150" src="{{ $category->imageUrl }}">
                                 </td>
 
                                 <td>
@@ -75,6 +75,12 @@
 
 
                                 <td class="project-actions text-right">
+                                    <button class="btn btn-warning btn-sm" wire:click.prevent="edit({{$category->id}})">
+                                        <i class="fas fa-edit">
+                                        </i>
+                                        @lang('all.edit')
+                                    </button>
+
                                     @if ($delete_dialog)
                                         <button class="btn btn-danger btn-sm" data-target="#delete-modal"
                                                 data-toggle="modal" wire:click="deleteId({{ $category->id }})">
@@ -127,11 +133,22 @@
     </div>
 
     @livewire('create-category')
+    @livewire('edit-category')
 
     @push('scripts')
         <script>
             Livewire.on('category_stored', () => {
                 $('#add-category-modal').modal('hide');
+            });
+        </script>
+
+        <script>
+            Livewire.on('category_edit', (id) => {
+                $('#edit-category-modal').modal('show');
+            });
+
+            Livewire.on('category_updated', () => {
+                $('#edit-category-modal').modal('hide');
             });
         </script>
     @endpush

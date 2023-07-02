@@ -9,7 +9,7 @@
 <div class="container-fluid">
         <div class="row justify-content-center m-t-20 p-b-20 m-b-30 border-bottom">
             <div class="col-md-4">
-                <a href="{{route('home')}}"> <img class="animation__shake" src="{{ asset('assets/img/logo.png') }}" alt="{{ env('app_name') }}"
+                <a href="{{route('home')}}"> <img class="animation__shake" src="{{ asset('assets/img/logo.png') }}" alt="{{ __('website.name') }}"
                                   height="50" width="50"></a>
             </div>
             <div class="col-md-6">

@@ -9,7 +9,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a class="h1" href="/">{{ env('APP_NAME') }}</a>
+                <a class="h1" href="/">{{ __('website.name') }}</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">@lang('all.login_to_system')</p>

@@ -76,7 +76,6 @@ Route::as("deployment.")->group(function () {
     })->name("clear-cache");
 });
 
-
 Route::resource('backup', BackupController::class)->except(['edit', 'update', 'store']);
 Route::get('/backup/restore/{name}', [BackupController::class, 'restore'])->name('backup.restore');
 
@@ -100,6 +99,7 @@ Route::group(
         Route::post("/orders", [OrderController::class , "store"])->name('orders.store');
         Route::get("/orders/{order}/details", [OrderController::class , "details"])->name('orders.details');
 
+        Route::get("/pages/{page}/plain", [PageController::class , "show"])->name('pages.show');
 
         Route::view('login', 'auth.login-v2')->name('login')->middleware('guest');
         Route::post('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
@@ -110,9 +110,9 @@ Route::group(
             Route::get('/home', [HomeController::class, 'websiteHome'])->name('home');
             Route::redirect('/', "/home");
 
-            Route::get('/categories/{category}', [CategoryController::class, 'websiteShow'])->name('categories.show');
-
             Route::get('/pages/{page}', [PageController::class, 'websiteShow'])->name('pages.show');
+
+            Route::get('/products', [ProductController::class, 'websiteIndex'])->name('products.index');
 
             Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
             Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -144,7 +144,7 @@ Route::group(
             Route::resource('sub-categories', SubCategoryController::class)->only(['index', 'show']);
             Route::resource('orders', OrderController::class)->only(['index']);
             Route::resource('products', ProductController::class)->only(['index', 'show']);
-            Route::resource('pages', PageController::class)->only(['index', 'show', 'create', 'store']);
+            Route::resource('pages', PageController::class)->only(['index', 'create', 'store']);
         });
     }
 );

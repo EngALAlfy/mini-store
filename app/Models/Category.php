@@ -16,8 +16,17 @@ class Category extends Model
         'color',
     ];
 
-    public function getImageAttribute($image){
-        return $image == null ? asset("assets/img/file-input-placeholder.png") : asset("/storage/photos") . "/" . $image ;
+    protected $appends = [
+        'imageName',
+        'imageUrl',
+    ];
+
+    public function getImageUrlAttribute(){
+        return $this->image == null ? asset("assets/img/file-input-placeholder.png") : asset("/storage/photos") . "/" . $this->image ;
+    }
+
+    public function getImageNameAttribute(){
+        return $this->image;
     }
 
     public function products()

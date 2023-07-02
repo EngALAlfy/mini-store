@@ -134,7 +134,7 @@
                         font-style: normal
                     }
 
-                    #font-{{ $i }}    {
+                    #font-{{ $i }}         {
                         font-family: '{{ $i }}.ttf';
                     }
                 </style>
@@ -189,52 +189,58 @@
         <div class="card-header">@lang('all.contact_us')</div>
         <div class="card-body">
             <div class=" row justify-content-center">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="phone">@lang('all.phone')</label>
                         <input class="form-control @error('phone') is-invalid @enderror" id="phone"
-                               wire:model="phone" placeholder="@lang('all.phone')"/>
+                               wire:model.lazy="phone" placeholder="@lang('all.phone')"/>
                         @error('phone')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
-
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="email">@lang('all.email')</label>
                         <input class="form-control @error('email') is-invalid @enderror" id="email"
-                               wire:model="email" placeholder="@lang('all.email')"/>
+                               wire:model.lazy="email" placeholder="@lang('all.email')"/>
                         @error('email')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
+                </div>
 
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="address">@lang('all.address')</label>
                         <input class="form-control @error('address') is-invalid @enderror" id="address"
-                               wire:model="address" placeholder="@lang('all.address')"/>
+                               wire:model.lazy="address" placeholder="@lang('all.address')"/>
                         @error('address')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
+                </div>
 
+                <div class="col-md-12">
                     <hr>
-
                     <h5>@lang('all.location')</h5>
-
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="lng">@lang('all.lng')</label>
                         <input class="form-control @error('lng') is-invalid @enderror" id="lng"
-                               wire:model="lng" placeholder="@lang('all.lng')"/>
+                               wire:model.lazy="lng" placeholder="@lang('all.lng')"/>
                         @error('lng')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
-
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="lat">@lang('all.lat')</label>
 
                         <input class="form-control @error('lat') is-invalid @enderror" id="lat"
-                               wire:model="lat" placeholder="@lang('all.lat')"/>
+                               wire:model.lazy="lat" placeholder="@lang('all.lat')"/>
                         @error('lat')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -249,21 +255,22 @@
         <div class="card-header">@lang('all.orders_receive')</div>
         <div class="card-body">
             <div class=" row justify-content-center">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="orders_whatsapp">@lang('all.whatsapp')</label>
                         <input class="form-control @error('orders_whatsapp') is-invalid @enderror" id="orders_whatsapp"
-                               wire:model="orders_whatsapp" placeholder="201011121314"/>
+                               wire:model.lazy="orders_whatsapp" placeholder="201011121314"/>
                         <small class="text-muted">@lang('all.whatsapp_helper')</small>
                         @error('orders_whatsapp')
-                            <span class="invalid-feedback">{{ $message }}</span>
+                        <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
-
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="orders_email">@lang('all.email')</label>
                         <input class="form-control @error('orders_email') is-invalid @enderror" id="orders_email"
-                               wire:model="orders_email" placeholder="name@mail.com"/>
+                               wire:model.lazy="orders_email" placeholder="name@mail.com"/>
                         @error('orders_email')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -272,6 +279,5 @@
             </div>
         </div>
     </div>
-
 
 </div>

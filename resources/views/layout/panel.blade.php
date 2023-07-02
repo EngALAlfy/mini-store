@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/icon.ico') }}">
 
-    <title>@yield('title') | {{ env('APP_NAME') }}</title>
+    <title>@yield('title') | {{ __('website.name') }}</title>
     @include('includes.styles')
 
     @include('includes.fonts')
@@ -19,7 +19,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('assets/img/logo.png') }}" alt="{{ env('app_name') }}"
+            <img class="animation__shake" src="{{ asset('assets/img/logo.png') }}" alt="{{ __('website.name') }}"
                 height="60" width="60">
         </div>
 

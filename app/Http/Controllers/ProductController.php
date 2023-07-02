@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -15,10 +13,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return  view('products.index');
+        return view('products.index');
     }
-
-
+    public function websiteIndex()
+    {
+        return view('website.products.index');
+    }
 
     /**
      * Display the specified resource.

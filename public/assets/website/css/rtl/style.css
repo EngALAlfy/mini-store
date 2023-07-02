@@ -1,6 +1,9 @@
 :root {
     --primary-color: rgb(0, 212, 0);
-    /* Dark Green */
+}
+
+body{
+    background-color: rgba(233,233,233,0.22);
 }
 
 .btn-primary {
@@ -16,6 +19,7 @@
 .product-card {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .product-card img {
@@ -39,10 +43,12 @@
     color: #fff;
 }
 
+
 .category-filter:hover {
     background-color: #6c757d;
     color: #fff;
 }
+
 #header {
     height: 80px;
     /*transition: all 0.5s;*/
@@ -107,7 +113,7 @@
 .main-nav>ul>li {
     position: relative;
     white-space: nowrap;
-    float: left;
+    float: right;
 }
 
 .main-nav a {
@@ -143,8 +149,8 @@
 .dropdown-item:after {
     content: "\f107";
     font-family: FontAwesome;
-    padding-left: 10px;
-    float: right;
+    padding-right: 10px;
+    float: left;
 }
 
 
@@ -157,7 +163,7 @@
     bottom: 0;
     z-index: 9999;
     overflow-y: auto;
-    left: -260px;
+    right: -260px;
     width: 260px;
     padding-top: 18px;
     background: rgba(19, 39, 57, 0.8);
@@ -188,9 +194,9 @@
 .mobile-nav .drop-down>a:after {
     content: "\f078";
     font-family: FontAwesome;
-    padding-left: 10px;
+    padding-right: 10px;
     position: absolute;
-    right: 15px;
+    left: 15px;
 }
 
 .mobile-nav .active.drop-down>a:after {
@@ -198,7 +204,7 @@
 }
 
 .mobile-nav .drop-down>a {
-    padding-right: 35px;
+    padding-left: 35px;
 }
 
 .mobile-nav .drop-down ul {
@@ -207,12 +213,12 @@
 }
 
 .mobile-nav .drop-down li {
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .mobile-nav-toggle {
     position: fixed;
-    right: 0;
+    left: 0;
     top: 0;
     z-index: 9998;
     border: 0;
@@ -222,7 +228,7 @@
     outline: none !important;
     line-height: 1;
     cursor: pointer;
-    text-align: right;
+    text-align: left;
 }
 
 .mobile-nav-toggle i {
@@ -235,7 +241,7 @@
     height: 100%;
     z-index: 9997;
     top: 0;
-    left: 0;
+    right: 0;
     position: fixed;
     background: rgba(19, 39, 57, 0.8);
     overflow: hidden;
@@ -247,7 +253,7 @@
 }
 
 .mobile-nav-active .mobile-nav {
-    left: 0;
+    right: 0;
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
@@ -273,7 +279,7 @@ h1 {
     text-align: center;
     position: relative;
     bottom: 0;
-    right: 0;
+    left: 0;
     width: 100%;
 }
 
@@ -350,7 +356,7 @@ Map
 .map-iframe {
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;

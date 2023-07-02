@@ -10,8 +10,8 @@
         <div class="col-12 d-flex justify-content-center align-items-center"
              style="cursor: pointer;height: {{ $height }}px;">
             <img wire:loading.remove style="width:{{ $width }}px;max-height: {{ $height - 40 }}px;"
-                 class="m-t-20 m-b-20 img-fluid" id="image"
-                 src="{{ $image ? $image->temporaryUrl() : asset('assets/img/file-input-placeholder.png') }}">
+                 class="m-t-20 m-b-20 img-fluid image-previewed" id="image"
+                 src="{{ $image ? (is_string($image) ? $image : $image->temporaryUrl()) : asset('assets/img/file-input-placeholder.png') }}">
 
             <div wire:loading wire:target="image" class="spinner-border text-primary" role="status">
                 <span class="sr-only">Loading...</span>

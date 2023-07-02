@@ -25,7 +25,7 @@ class Categories extends Component
     public $delete_dialog;
 
 
-    protected $listeners = ['category_stored'];
+    protected $listeners = ['category_stored' , 'category_updated'];
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -37,6 +37,11 @@ class Categories extends Component
 
 
     public function category_stored()
+    {
+        $this->success();
+    }
+
+    public function category_updated()
     {
         $this->success();
     }
@@ -54,6 +59,11 @@ class Categories extends Component
     function deleteId($id)
     {
         $this->deleteId = $id;
+    }
+
+    function edit($id)
+    {
+        $this->emit('category_edit' , $id);
     }
 
     function delete()

@@ -27,7 +27,7 @@ class PageController extends Controller
     public function websiteShow(Page $page)
     {
         //
-        return view('pages.show', compact('page'));
+        return view('website.pages.show', compact('page'));
     }
 
     public function create()

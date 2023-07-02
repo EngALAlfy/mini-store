@@ -50,7 +50,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="{{ route('admin.pages.show', $page) }}">
+                                    <a href="{{ route('pages.show', $page) }}">
                                         {{ $page->name }}
                                     </a>
                                 </td>

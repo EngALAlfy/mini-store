@@ -46,7 +46,7 @@
                                         <th style="width: 5%">
                                             #
                                         </th>
-                                        <th style="width: 10%">
+                                        <th style="width: 15%">
                                             @lang('all.name')
                                         </th>
                                         <th style="width: 10%">
@@ -58,10 +58,10 @@
                                         <th style="width: 10%">
                                             @lang('all.title')
                                         </th>
-                                        <th style="width: 35%">
+                                        <th style="width: 25%">
                                             @lang('all.message')
                                         </th>
-                                        <th style="width: 10%">
+                                        <th style="width: 15%">
                                             @lang('all.date')
                                         </th>
                                         <th style="width: 10%">
