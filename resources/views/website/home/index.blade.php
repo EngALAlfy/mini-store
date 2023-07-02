@@ -27,7 +27,7 @@
                             <div class="col-md-5 col-md-offset-1" data-aos-once="true" data-aos="fade-right"
                                  data-aos-duration="1000">
                                 <div class="image">
-                                    <img src="{{$categories[$i]->image}}" alt="Image Placeholder">
+                                    <img src="{{$categories[$i]->imageUrl}}" alt="Image Placeholder">
                                 </div>
                             </div>
 
