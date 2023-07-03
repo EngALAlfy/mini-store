@@ -168,6 +168,7 @@ return [
     'fcm_token' => "FCM Token",
     "followers_count" => "Followers count",
     'perPage' => "Per page",
+    'home_sections_count' => "Home page sections",
     'message' => "Message",
     'title' => "Title",
     'send' => "Send",

@@ -101,7 +101,27 @@
                             <option id="20" value="20">30</option>
 
                         </select>
-                        @error('notification_sound')
+                        @error('perPage')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="homeSections">@lang('all.home_sections_count')</label>
+                        <select class="custom-select @error('homeSections') is-invalid @enderror"
+                                id="homeSections" wire:model="homeSections" placeholder="@lang('all.homeSections')">
+
+                            <option id="null" value="null">@lang('all.home_sections_count')</option>
+                            <option id="5" value="1">1</option>
+                            <option id="5" value="2">2</option>
+                            <option id="10" value="3">3</option>
+                            <option id="15" value="5">5</option>
+                            <option id="20" value="7">7</option>
+                            <option id="20" value="9">9</option>
+                            <option id="20" value="11">11</option>
+                            <option id="20" value="15">15</option>
+                        </select>
+                        @error('homeSections')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>

@@ -25,6 +25,7 @@ class Settings extends Component
 
     public $perPage;
 
+    public $homeSections;
     public $orders_email;
     public $orders_whatsapp;
 
@@ -38,6 +39,7 @@ class Settings extends Component
         $this->notification_sound = Setting::find('notification_sound')->value ?? 'no_sound';
 
         $this->perPage = Setting::find('perPage')->value ?? 10;
+        $this->homeSections = Setting::find('homeSections')->value ?? 3;
 
         $this->phone = Setting::find('phone')->value ?? null;
         $this->email = Setting::find('email')->value ?? null;

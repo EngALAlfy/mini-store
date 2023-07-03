@@ -7,7 +7,7 @@
     <!-- SECTION -->
     <div class="section">
         <!-- Home Sections -->
-        @for($i=0;$i<3;$i++)
+        @for($i=0;$i<$homeSections;$i++)
             @if(!empty($categories[$i]))
                 <div class="home-section p-t-170 p-b-70 " data-aos-once="true" data-aos="fade-up"
                      data-aos-duration="1000"
@@ -27,7 +27,7 @@
                             <div class="col-md-5 col-md-offset-1" data-aos-once="true" data-aos="fade-right"
                                  data-aos-duration="1000">
                                 <div class="image">
-                                    <img src="{{$categories[$i]->imageUrl}}" alt="Image Placeholder">
+                                    <img style="opacity: 0.7;" src="{{$categories[$i]->imageUrl}}" alt="{{$categories[$i]->name}}">
                                 </div>
                             </div>
 

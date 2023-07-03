@@ -168,6 +168,7 @@ return [
     'fcm_token' => "توكن الاشعارات",
     "followers_count" => "عدد المتابعين",
     'perPage' => "عرض في الصفحة",
+    'home_sections_count' => "اقسام الصفحة الرئيسية",
     'message' => "الرسالة",
     'title' => "العنوان",
     'send' => "ارسال",

@@ -19,7 +19,7 @@
                     @enderror
                 </div>
 
-                @include('includes.image-input' , ["height" => 300 , "width" => 300])
+                @include('includes.image-input' , [ "field_name" => "edit-image" , "height" => 300 , "width" => 300])
 
                 <div class="form-group">
                     <textarea wire:model.defer="desc" name="desc"

@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Post;
 use App\Models\Price;
 use App\Models\Product;
+use App\Models\Setting;
 use App\Models\State;
 use App\Models\SubCategory;
 use Request;
@@ -27,7 +28,8 @@ class HomeController extends Controller
     function websiteHome()
     {
         $categories = Category::limit(3)->get();
-        return view('website.home.index' , compact('categories'));
+        $homeSections = Setting::find('homeSections')->value ?? 3;
+        return view('website.home.index' , compact('categories' , 'homeSections'));
     }
 
     function search(Request $request)
