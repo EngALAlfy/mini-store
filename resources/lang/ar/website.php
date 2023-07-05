@@ -9,7 +9,7 @@ return [
     "categories" => "الاقسام",
     "products" => "المنتجات",
     "category_products" => "بعض منتجات القسم",
-    "latest_products" => "اخر المنتجات",
+    "latest_products" => "منتجات مضافة حديثا",
     "order_now" => "اطلب الان",
     "place_order" => "تأكيد طلبك",
     "contact_us" => "تواصل معنا",

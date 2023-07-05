@@ -1,5 +1,4 @@
 <div class="container" style="margin-top: 50px;">
-    <h4 class="text-capitalize">@lang('website.category_products')</h4>
     <div class="row mt-4">
         @forelse($products as $product)
             @include('website.includes.product-card' , ['product' => $product])
