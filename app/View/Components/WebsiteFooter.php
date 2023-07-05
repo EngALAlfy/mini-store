@@ -12,9 +12,9 @@ use Illuminate\View\Component;
 class WebsiteFooter extends Component
 {
 
-    public $facebook;
-    public $instagram;
-    public $youtube;
+    public $phone;
+    public $email;
+    public $address;
     public $pages;
 
     /**
@@ -24,10 +24,11 @@ class WebsiteFooter extends Component
      */
     public function __construct()
     {
-        $this->facebook = Setting::find("facebook")->value ?? "https://facebook.com";
-        $this->instagram = Setting::find("instagram")->value ?? "https://instagram.com";
-        $this->youtube = Setting::find("youtube")->value ?? "https://youtube.com";
-        $this->pages = Page::all();
+        $this->phone = optional(Setting::find("phone"))->value;
+        $this->email = optional(Setting::find("email"))->value;
+        $this->address = optional(Setting::find("address"))->value;
+
+        $this->pages = Page::latest('id')->limit(3)->get();
     }
 
     /**

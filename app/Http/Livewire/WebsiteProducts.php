@@ -11,11 +11,17 @@ use Livewire\Component;
 class WebsiteProducts extends Component
 {
     use Funcs;
+
+    public $title;
+
+    public $random = false;
+    public $limit = 8;
+
     public $categories = [];
     public $category_id = 0;
     public $sub_category_id = 0;
     public $productDetails;
-    public $listeners = ['show_product_details' => '$refresh' , 'order_stored'];
+    public $listeners = ['show_product_details' => '$refresh', 'order_stored'];
 
     public function mount()
     {
@@ -27,9 +33,11 @@ class WebsiteProducts extends Component
         $this->sub_category_id = 0;
     }
 
-    public function order_stored(){
+    public function order_stored()
+    {
         $this->success();
     }
+
     public function setProduct(Product $product)
     {
         $this->productDetails = $product;
@@ -38,24 +46,31 @@ class WebsiteProducts extends Component
 
     function createOrder($product_id)
     {
-        $this->emit('order_create' , $product_id);
+        $this->emit('order_create', $product_id);
     }
 
     public function render()
     {
-        $products = Product::latest();
         $subCategories = [];
+        $products = Product::latest();
 
-        if ($this->category_id > 0) {
-            $subCategories = SubCategory::latest()->where('category_id', $this->category_id)->get();
-        }
+        if ($this->random) {
+            $products = $products->limit($this->limit);
+        } else {
+            if ($this->category_id > 0) {
+                $subCategories = SubCategory::latest()->where('category_id', $this->category_id)->get();
+            }
 
-        if ($this->sub_category_id > 0) {
-            $products = $products->where('sub_category_id', $this->sub_category_id);
+            if ($this->sub_category_id > 0) {
+                $products = $products->where('sub_category_id', $this->sub_category_id);
+            } else {
+                if ($this->category_id > 0) {
+                    $products = $products->where('category_id', $this->category_id);
+                }
+            }
         }
 
         $products = $products->get();
-
         return view('livewire.website-products', compact('products', 'subCategories'));
     }
 }

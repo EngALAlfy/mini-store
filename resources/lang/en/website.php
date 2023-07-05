@@ -6,9 +6,12 @@ return [
     "home" => "Home",
     "categories" => "Categories",
     "products" => "Products",
+    "category_products" => "Some category products",
+    "latest_products" => "Latest products",
     "order_now" => "Order now",
     "place_order" => "Place Order",
     "contact_us" => "Contact us",
+    "links" => "Useful links",
     "copyright" => "All rights reserved",
     "all" => "All",
 

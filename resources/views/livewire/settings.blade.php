@@ -6,132 +6,145 @@
         <div class="card-body">
 
             <div class=" row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input class="custom-control-input" id="fixed_navbar" type="checkbox"
-                                   wire:model="fixed_navbar">
-                            <label class="custom-control-label" for="fixed_navbar">@lang('all.fixed_navbar')</label>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" id="fixed_navbar" type="checkbox"
+                                           wire:model="fixed_navbar">
+                                    <label class="custom-control-label"
+                                           for="fixed_navbar">@lang('all.fixed_navbar')</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" id="collaps_sidebar" type="checkbox"
+                                           wire:model="collaps_sidebar">
+                                    <label class="custom-control-label"
+                                           for="collaps_sidebar">@lang('all.collaps_sidebar')</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" id="fullscreen" data-widget="fullscreen"
+                                           type="checkbox">
+                                    <label class="custom-control-label" for="fullscreen">@lang('all.fullscreen')</label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" id="dark_mode" type="checkbox"
+                                           wire:model="dark_mode">
+                                    <label class="custom-control-label" for="dark_mode">@lang('all.dark_mode')</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input class="custom-control-input" id="delete_dialog" type="checkbox"
+                                           wire:model="delete_dialog">
+                                    <label class="custom-control-label"
+                                           for="delete_dialog">@lang('all.delete_dialog')</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input class="custom-control-input" id="collaps_sidebar" type="checkbox"
-                                   wire:model="collaps_sidebar">
-                            <label class="custom-control-label"
-                                   for="collaps_sidebar">@lang('all.collaps_sidebar')</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input class="custom-control-input" id="fullscreen" data-widget="fullscreen"
-                                   type="checkbox">
-                            <label class="custom-control-label" for="fullscreen">@lang('all.fullscreen')</label>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input class="custom-control-input" id="dark_mode" type="checkbox" wire:model="dark_mode">
-                            <label class="custom-control-label" for="dark_mode">@lang('all.dark_mode')</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input class="custom-control-input" id="delete_dialog" type="checkbox"
-                                   wire:model="delete_dialog">
-                            <label class="custom-control-label" for="delete_dialog">@lang('all.delete_dialog')</label>
+                        <div class="col-md-6 ">
+                            <a class="btn btn-sm btn-warning btn-block text-right"
+                               href="{{ route('deployment.clear-cache') }}"><i
+                                    class="fa fa-trash mr-2"></i>@lang('all.clear_cache')</a>
+                            <a class="btn btn-sm btn-info btn-block text-right" href="{{ route('backup.index') }}"
+                               target="_blank"><i class="fa fa-retweet mr-2"></i>@lang('all.backup')</a>
                         </div>
                     </div>
 
                     <hr>
 
-                    <div class="form-group">
-                        <label for="font">@lang('all.font')</label>
-                        <select class="custom-select @error('font') is-invalid @enderror" id="font"
-                                wire:model="font" placeholder="@lang('all.font')">
+                    <div class="row">
+                        <div class="col-md-6">
 
-                            <option id="sans-serif" value="sans-serif">@lang('all.font_num_0')</option>
+                            <div class="form-group">
+                                <label for="font">@lang('all.font')</label>
+                                <select class="custom-select @error('font') is-invalid @enderror" id="font"
+                                        wire:model="font" placeholder="@lang('all.font')">
 
-                            @for ($i = 1; $i <= 5; $i++)
-                                <option id="font-{{ $i }}" value="{{ $i }}.ttf">
-                                    {{ __('all.font_num_' . $i) }}</option>
-                            @endfor
+                                    <option id="sans-serif" value="sans-serif">@lang('all.font_num_0')</option>
 
-                        </select>
-                        @error('font')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <option id="font-{{ $i }}" value="{{ $i }}.ttf">
+                                            {{ __('all.font_num_' . $i) }}</option>
+                                    @endfor
+
+                                </select>
+                                @error('font')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notification_sound">@lang('all.notification_sound')</label>
+                                <select class="custom-select @error('notification_sound') is-invalid @enderror"
+                                        id="notification_sound" wire:model="notification_sound"
+                                        placeholder="@lang('all.notification_sound')">
+
+                                    <option id="no_sound" value="no_sound">@lang('all.no_sound')</option>
+
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <option id="notification_sound-{{ $i }}" value="{{ $i }}.wav">
+                                            {{ __('all.notification_sound_num_' . $i) }}</option>
+                                    @endfor
+
+                                </select>
+                                @error('notification_sound')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="perPage">@lang('all.perPage')</label>
+                                <select class="custom-select @error('perPage') is-invalid @enderror"
+                                        id="perPage" wire:model="perPage" placeholder="@lang('all.perPage')">
+
+                                    <option id="null" value="null">@lang('all.perPage')</option>
+                                    <option id="5" value="5">5</option>
+                                    <option id="10" value="10">10</option>
+                                    <option id="15" value="15">15</option>
+                                    <option id="20" value="20">20</option>
+                                    <option id="20" value="20">30</option>
+
+                                </select>
+                                @error('perPage')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="homeSections">@lang('all.home_sections_count')</label>
+                                <select class="custom-select @error('homeSections') is-invalid @enderror"
+                                        id="homeSections" wire:model="homeSections" placeholder="@lang('all.homeSections')">
+
+                                    <option id="null" value="null">@lang('all.home_sections_count')</option>
+                                    <option id="5" value="1">1</option>
+                                    <option id="5" value="2">2</option>
+                                    <option id="10" value="3">3</option>
+                                    <option id="15" value="5">5</option>
+                                    <option id="20" value="7">7</option>
+                                    <option id="20" value="9">9</option>
+                                    <option id="20" value="11">11</option>
+                                    <option id="20" value="15">15</option>
+                                </select>
+                                @error('homeSections')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="notification_sound">@lang('all.notification_sound')</label>
-                        <select class="custom-select @error('notification_sound') is-invalid @enderror"
-                                id="notification_sound" wire:model="notification_sound"
-                                placeholder="@lang('all.notification_sound')">
-
-                            <option id="no_sound" value="no_sound">@lang('all.no_sound')</option>
-
-                            @for ($i = 1; $i <= 5; $i++)
-                                <option id="notification_sound-{{ $i }}" value="{{ $i }}.wav">
-                                    {{ __('all.notification_sound_num_' . $i) }}</option>
-                            @endfor
-
-                        </select>
-                        @error('notification_sound')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="perPage">@lang('all.perPage')</label>
-                        <select class="custom-select @error('perPage') is-invalid @enderror"
-                                id="perPage" wire:model="perPage" placeholder="@lang('all.perPage')">
-
-                            <option id="null" value="null">@lang('all.perPage')</option>
-                            <option id="5" value="5">5</option>
-                            <option id="10" value="10">10</option>
-                            <option id="15" value="15">15</option>
-                            <option id="20" value="20">20</option>
-                            <option id="20" value="20">30</option>
-
-                        </select>
-                        @error('perPage')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label for="homeSections">@lang('all.home_sections_count')</label>
-                        <select class="custom-select @error('homeSections') is-invalid @enderror"
-                                id="homeSections" wire:model="homeSections" placeholder="@lang('all.homeSections')">
-
-                            <option id="null" value="null">@lang('all.home_sections_count')</option>
-                            <option id="5" value="1">1</option>
-                            <option id="5" value="2">2</option>
-                            <option id="10" value="3">3</option>
-                            <option id="15" value="5">5</option>
-                            <option id="20" value="7">7</option>
-                            <option id="20" value="9">9</option>
-                            <option id="20" value="11">11</option>
-                            <option id="20" value="15">15</option>
-                        </select>
-                        @error('homeSections')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                </div>
-                <div class="col-md-6 ">
-                    <a class="btn btn-sm btn-warning btn-block text-right" href="{{ route('deployment.clear-cache') }}"><i
-                            class="fa fa-trash mr-2"></i>@lang('all.clear_cache')</a>
-                    <a class="btn btn-sm btn-info btn-block text-right" href="{{ route('backup.index') }}"
-                       target="_blank"><i class="fa fa-retweet mr-2"></i>@lang('all.backup')</a>
                 </div>
             </div>
 
@@ -154,7 +167,7 @@
                         font-style: normal
                     }
 
-                    #font-{{ $i }}         {
+                    #font-{{ $i }}          {
                         font-family: '{{ $i }}.ttf';
                     }
                 </style>

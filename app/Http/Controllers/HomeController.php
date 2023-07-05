@@ -27,15 +27,21 @@ class HomeController extends Controller
 
     function websiteHome()
     {
-        $categories = Category::limit(3)->get();
         $homeSections = Setting::find('homeSections')->value ?? 3;
-        return view('website.home.index' , compact('categories' , 'homeSections'));
+
+        $categories = Category::limit($homeSections)->get();
+
+        if ($homeSections > count($categories)) {
+            $homeSections = count($categories);
+        }
+
+        return view('website.home.index', compact('categories', 'homeSections'));
     }
 
     function search(Request $request)
     {
         $query = $request->input('q');
-        return view('home.search' ,compact( 'query'));
+        return view('home.search', compact('query'));
     }
 
     function randomHexColor()

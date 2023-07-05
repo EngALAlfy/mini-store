@@ -1,7 +1,7 @@
 <!-- Product Modal -->
 <div wire:ignore.self class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
-        <div class="modal-content">
+        <div class="modal-content text-dark">
             <div class="modal-header">
                 <h4 class="modal-title">@lang('website.place_order')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="@lang('all.close')">
@@ -52,7 +52,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" wire:click.prevent="save()">@lang('all.send')</button>
+                <button type="button" class="btn btn-primary" wire:click.prevent="save()">@lang('website.place_order')</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('all.cancel')</button>
             </div>
         </div>

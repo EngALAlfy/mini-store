@@ -15,6 +15,7 @@ class PageFactory extends Factory
     {
         return [
             "content" => $this->faker->randomHtml(),
+
         ];
     }
 }

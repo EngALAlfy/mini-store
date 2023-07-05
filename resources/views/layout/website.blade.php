@@ -57,6 +57,8 @@
 <script src="{{ asset('assets/website/js/bootstrap.min.js') }}"></script>
 @livewireScripts
 
+@stack('modals')
+
 @stack('scripts')
 {{-- image previewd zoom --}}
 <script src="{{asset('assets/custom/js/image-preview.js')}}"></script>

@@ -19,8 +19,10 @@ class PageSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         DB::table('pages')->truncate();
         Schema::enableForeignKeyConstraints();
-        Page::factory()->create(['name' => 'privacy']);
-        Page::factory()->create(['name' => 'about']);
-        Page::factory()->create(['name' => 'contact']);
+        Page::factory()->create(['name' => 'سياية الخصوصية']);
+        Page::factory()->create(['name' => 'من نحن']);
+        Page::factory()->create(['name' => 'معلومات التواصل']);
+        Page::factory()->create(['name' => 'عروض']);
+        Page::factory()->create(['name' => 'حمل التطبيق']);
     }
 }
