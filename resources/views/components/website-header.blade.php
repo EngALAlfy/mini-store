@@ -1,7 +1,7 @@
 <header id="header" class="" style="width: 100%!important;">
     <nav class="main-nav navbar navbar-expand-md" style="z-index: 999;">
         <div class="logo ml-4">
-            <a href="/" class="scrollto"><img height="60" width="60" src="{{asset('assets/img/logo.png')}}" alt=""
+            <a href="/" class="scrollto"><img height="60" width="180" src="{{asset('assets/img/logo.png')}}" alt=""
                                               class="max-width: 100%;"></a>
         </div>
 

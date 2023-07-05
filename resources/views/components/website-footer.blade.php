@@ -25,18 +25,35 @@
                         <strong>@lang('all.phone'):</strong>  {{$phone}}<br>
                         <strong>@lang('all.email'):</strong> {{$email}}<br>
                     </p>
+                    <div class="social-links">
+                        <a href="" class="whatsapp"><i class="fa fa-whatsapp"></i></a>
+                        <a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="copyright">
-            @lang('website.copyright') &copy;
-            <strong>
+        <div class="copyright p-b-20">
+            <div class="float-md-left m-b-20"> @lang('website.copyright') &copy;
+                <strong>
+                    @lang('website.name')
+                </strong>
+                <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            </div>
+
+            <div class="float-md-right">
+                @php
+                    $emojies = [12 , 13  , 15 ,16 ,19,21,22,25,26 , 36 , 38 , 67];
+                    $emoji = '&#1285' . $emojies[rand(0 , count($emojies) - 1)];
+                @endphp
+
+                Made with {!! $emoji !!} by
                 <a class="text-muted" href="https://alalfy.com">Alalfy</a>
-            </strong>
-            <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            </div>
         </div>
     </div>
 </footer>

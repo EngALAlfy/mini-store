@@ -27,6 +27,8 @@ class HomeController extends Controller
 
     function websiteHome()
     {
+        $lat = Setting::find('lat')->value ?? 10;
+        $lng = Setting::find('lng')->value ?? 10;
         $homeSections = Setting::find('homeSections')->value ?? 3;
 
         $categories = Category::limit($homeSections)->get();
@@ -35,7 +37,7 @@ class HomeController extends Controller
             $homeSections = count($categories);
         }
 
-        return view('website.home.index', compact('categories', 'homeSections'));
+        return view('website.home.index', compact('categories', 'homeSections' , 'lat' , 'lng'));
     }
 
     function search(Request $request)

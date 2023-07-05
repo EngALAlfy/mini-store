@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "name" => "Elite",
+    "name" => "Elite foods",
     "desc" => "Elite for Elite",
     "home" => "Home",
     "categories" => "Categories",

@@ -1,5 +1,5 @@
 :root {
-    --primary-color: rgb(0, 212, 0);
+    --primary-color: #0e0e0e;
     /* Dark Green */
 }
 
@@ -123,7 +123,7 @@
 .main-nav a:hover,
 .main-nav .active>a,
 .main-nav li:hover>a {
-    color: #2c2c2c;
+    color: #bebebe;
     text-decoration: none;
 }
 

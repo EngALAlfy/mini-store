@@ -53,7 +53,7 @@
                 <div class="col-md-9">
                     <div class="map-container">
                         <iframe class="map-iframe"
-                                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl={{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getCurrentLocale() }}&amp;q=10,20&amp;t=&amp;z=10&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl={{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getCurrentLocale() }}&amp;q={{$lng}},{{$lat}}&amp;t=&amp;z=10&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                         </iframe>
                     </div>
                 </div>
