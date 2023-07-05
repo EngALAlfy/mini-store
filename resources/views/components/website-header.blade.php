@@ -8,7 +8,7 @@
         <button class="navbar-toggler ml-auto mr-2" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars text-white"></i>
         </button>
 
         <span class="dropdown mr-3 d-md-none">
