@@ -6,7 +6,7 @@
 
             @include('includes.status')
 
-            <div class="mb-3">
+            <div class="mb-5">
                 <button wire:click="$set('category_id' , 0)"
                         class="category-filter @if($category_id == 0) active @endif"
                         data-category="all">@lang('website.all')</button>
@@ -18,13 +18,13 @@
             </div>
 
             @if(!empty($subCategories))
-                <div class="mb-3">
+                <div class="mb-5">
                     <button wire:click="$set('sub_category_id' , 0)"
-                            class="category-filter @if($sub_category_id == 0) active @endif"
+                            class="category-filter @if($sub_category_id == 0) active @endif btn-warning"
                             data-category="all">@lang('website.all')</button>
                     @foreach($subCategories as $subCategory)
                         <button wire:click="$set('sub_category_id' , {{$subCategory->id}})"
-                                class="category-filter @if($sub_category_id == $subCategory->id) active @endif"
+                                class="category-filter @if($sub_category_id == $subCategory->id) active @endif btn-warning"
                                 data-category="{{$subCategory->id}}">{{$subCategory->name}}</button>
                     @endforeach
                 </div>

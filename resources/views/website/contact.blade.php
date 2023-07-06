@@ -3,10 +3,16 @@
 
 @section('title', __('all.contact_us'))
 
+@push('styles')
+    <style>
+
+    </style>
+@endpush
+
 @section('content')
 
     <!-- SECTION -->
-    <div class="section m-t-170 m-b-50">
+    <div class="section m-t-170 m-b-50" >
         <!-- container -->
         <div class="container">
             <!-- row -->
@@ -19,10 +25,10 @@
                         <form action="{{ route('website.contact.store') }}" method="post">
                             @csrf
                             <div class="card-body row">
-                                <div class="col-5 text-center d-flex align-items-center justify-content-center">
+                                <div class="col-md-5 text-center d-flex align-items-center justify-content-center">
                                     <div class="">
                                         <img src="{{asset('assets/img/logo.png')}}" alt="{{__('website.name')}}"
-                                             class="m-b-20" width="150" height="150">
+                                             class="m-b-20" width="300" height="100">
                                         <h2><strong>{{ucfirst(__('website.name'))}}</strong></h2>
                                         <ul class="list-unstyled lead mb-5 mt-4 text-left text-muted">
                                             @isset($phone)
@@ -41,9 +47,15 @@
                                                 </li>
                                             @endisset
                                         </ul>
+                                        <div class="social-links">
+                                            <a href="" class="whatsapp mx-2"><i class="fa fa-2x fa-whatsapp"></i></a>
+                                            <a href="" class="facebook mx-2"><i class="fa  fa-2x fa-facebook"></i></a>
+                                            <a href="" class="linkedin  mx-2"><i class="fa  fa-2x fa-linkedin"></i></a>
+                                            <a href="" class="twitter mx-2"><i class="fa  fa-2x fa-twitter"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-7">
+                                <div class="col-md-7">
                                     <div class="form-group">
                                         <label for="inputName">@lang("all.name")</label>
                                         <input type="text" required id="inputName"
