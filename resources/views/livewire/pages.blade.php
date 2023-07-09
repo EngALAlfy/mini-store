@@ -58,7 +58,7 @@
                                 <td class="project-actions text-right">
 
                                     @if ($delete_dialog)
-                                        <button wire:click="deleteId({{ $page->name }})"
+                                        <button wire:click="deleteId({{ $page->id }})"
                                                 data-target="#delete-modal" data-toggle="modal"
                                             class="btn btn-danger btn-sm">
                                             <i class="fas fa-trash">
@@ -66,14 +66,14 @@
                                             @lang('all.delete')
                                         </button>
                                     @else
-                                        @if ($deleteId == $page->name)
+                                        @if ($deleteId == $page->id)
                                             <button wire:click="delete" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-check">
                                                 </i>
                                                 @lang('all.are_you_sure')
                                             </button>
                                         @else
-                                            <button wire:click="deleteId({{ $page->name }})"
+                                            <button wire:click="deleteId({{ $page->id }})"
                                                 class="btn btn-danger btn-sm">
                                                 <i class="fas fa-trash">
                                                 </i>
