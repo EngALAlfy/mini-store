@@ -1,10 +1,9 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
+    <a href="/" class="brand-link text-center">
         <img src="{{ asset('assets/img/logo.png') }}" alt="{{ __('website.name') }}"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">{{ __('website.name') }}</span>
+            class="brand-image float-none" style="opacity: .8">
     </a>
 
     <!-- Sidebar -->
