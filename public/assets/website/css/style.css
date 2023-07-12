@@ -124,7 +124,7 @@
 .main-nav a:hover,
 .main-nav .active>a,
 .main-nav li:hover>a {
-    color: #bebebe;
+    color: #ffd600;
     text-decoration: none;
 }
 
@@ -312,9 +312,28 @@ h1 {
 Home section
 */
 .home-section {
-    /*border-radius: 10px;*/
-    color: #000000!important;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #ff9900, #ffffff, #ffffff);
+    /* تعديل الألوان والتدرجات حسب التصميم المطلوب */
+    /* قم بتكرار القاعدة لكل قسم وغير الألوان والتدرجات حسب التصميم المطلوب */
+
+
 }
+
+.home-section::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+      background-image: linear-gradient(135deg, #088e26, #00ff00, #14ff4a);
+ /* تعديل اللون إلى اللون الجديد المرغوب */
+    clip-path: polygon(0 100%, 0 0, 100% 0, 100% 50%);
+}
+
+
 .home-section .image img {
     width: 100%;
     height: 100%;
@@ -334,6 +353,7 @@ Home section
     font-size: 25px;
     line-height: 1.5;
 }
+
 
 /*
 Map
