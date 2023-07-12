@@ -309,7 +309,7 @@ Home section
 */
 .home-section {
     /*border-radius: 10px;*/
-    color: #fff;
+    color: #000000!important;
 }
 .home-section .image img {
     width: 100%;
