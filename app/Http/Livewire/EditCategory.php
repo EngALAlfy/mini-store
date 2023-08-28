@@ -19,7 +19,7 @@ class EditCategory extends Component
     public $desc;
     public $color;
 
-    protected $listeners = ['category_updated' => '$refresh', 'category_edit'];
+    protected $listeners = ['category_updated' => '$refresh', 'c    ategory_edit'];
 
     public function updated($propertyName)
     {

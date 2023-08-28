@@ -96,10 +96,10 @@ Route::group(
     ],
     function () {
 
-        Route::post("/orders", [OrderController::class , "store"])->name('orders.store');
-        Route::get("/orders/{order}/details", [OrderController::class , "details"])->name('orders.details');
+        Route::post("/orders", [OrderController::class, "store"])->name('orders.store');
+        Route::get("/orders/{order}/details", [OrderController::class, "details"])->name('orders.details');
 
-        Route::get("/pages/{page}/plain", [PageController::class , "show"])->name('pages.show');
+        Route::get("/pages/{page}/plain", [PageController::class, "show"])->name('pages.show');
 
         Route::view('login', 'auth.login-v2')->name('login')->middleware('guest');
         Route::post('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
@@ -133,8 +133,8 @@ Route::group(
             // settings
             Route::get('/settings', [SettingController::class, 'index'])->name('settings');
             Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
-            Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
             Route::delete('/contacts/all', [ContactController::class, 'destroyAll'])->name('contacts.destroyAll');
+            Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
             // resources
             Route::resource('users', UserController::class);
